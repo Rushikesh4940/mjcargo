@@ -1,0 +1,744 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+
+  /* Night asphalt to daylight: the ground steps as the visitor moves down the
+     road. Every step sits on the logo navy's hue; dusk is the logo navy itself. */
+  --color-night: #0c1a31;
+  --color-night-2: #13274a;
+  --color-dusk: #284474;
+  --color-predawn: #45618f;
+  --color-dawn: #cdd7e6;
+  --color-day: #f3f4f1;
+  --color-paper: #ffffff;
+
+  /* Text on day grounds */
+  --color-ink: #0c1a31;
+  --color-ink-2: #3a4a63;
+  /* Text on night grounds */
+  --color-lamp: #f3f4f1;
+  --color-lamp-2: #b9c6da;
+
+  /* Lane paint in the logo green. Reserved for the primary action and the
+     route line. Dark text only on it: white fails contrast. */
+  --color-paint: #579e06;
+  --color-paint-hi: #6cb516;
+  --color-alert: #b42318;
+  --color-alert-night: #ff9a8f;
+  --color-go: #1f7a4d;
+
+  /* Soft geometry: pill controls, rounded signs and photos, and section
+     sheets whose shoulders round off like a road bending away. */
+  --radius-sign: 1.75rem;
+  --radius-control: 999px;
+  --radius-field: 0.875rem;
+  --radius-photo: 1.5rem;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+:root {
+  --radius-sheet: clamp(1.75rem, 1rem + 3vw, 3.5rem);
+  /* Room the floating header takes at the top of the first section. */
+  --header-space: 6.25rem;
+}
+@media (min-width: 1024px) {
+  :root {
+    --header-space: 7rem;
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6.5rem;
+    background: var(--color-night);
+  }
+  body {
+    background: var(--color-day);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    font-feature-settings: 'tnum' 0;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    text-rendering: optimizeLegibility;
+  }
+  @media (min-width: 768px) {
+    body {
+      font-size: 1.125rem;
+    }
+  }
+  ::selection {
+    background: var(--color-paint);
+    color: var(--color-night);
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-paint);
+    outline-offset: 3px;
+  }
+  a {
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 0.08em;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  input,
+  select,
+  textarea {
+    font: inherit;
+    caret-color: var(--color-paint);
+  }
+  /* Phones: 16px minimum stops iOS zooming into fields. */
+  input,
+  select,
+  textarea {
+    font-size: max(16px, 1rem);
+  }
+  button {
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+}
+
+@layer components {
+  /* Page frame: one pair of equal outer margins at every width. */
+  .frame {
+    width: 100%;
+    max-width: 88rem;
+    margin-inline: auto;
+    padding-inline: max(1rem, env(safe-area-inset-left));
+  }
+  @media (min-width: 640px) {
+    .frame {
+      padding-inline: 2rem;
+    }
+  }
+  @media (min-width: 1280px) {
+    .frame {
+      padding-inline: 3rem;
+    }
+  }
+
+  /* Gantry type: Archivo at full width, the voice of the overhead signs. */
+  .type-gantry {
+    font-stretch: 125%;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 0.98;
+  }
+  .type-display {
+    font-size: clamp(2.75rem, 1.6rem + 5.6vw, 6rem);
+  }
+  .type-h2 {
+    font-size: clamp(2rem, 1.35rem + 2.9vw, 3.75rem);
+  }
+  .type-h3 {
+    font-stretch: 112%;
+    font-weight: 700;
+    font-size: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+  .type-lede {
+    font-size: clamp(1.1875rem, 1.05rem + 0.55vw, 1.5rem);
+    line-height: 1.45;
+  }
+
+  /* A road sign: a filled panel with the white inset border every Indian
+     highway sign carries. Used where the page asks the visitor something. */
+  .sign {
+    position: relative;
+    background: var(--color-night-2);
+    color: var(--color-lamp);
+    border-radius: var(--radius-sign);
+    padding: 1.5rem;
+  }
+  .sign::before {
+    content: '';
+    position: absolute;
+    inset: 8px;
+    border: 2px solid rgb(243 244 241 / 0.75);
+    border-radius: calc(var(--radius-sign) - 8px);
+    pointer-events: none;
+  }
+  @media (min-width: 768px) {
+    .sign {
+      padding: 2.25rem;
+    }
+  }
+
+  /* Lane paint: the dashed line the route travels along. */
+  .lane-x {
+    height: 8px;
+    background-image: repeating-linear-gradient(90deg, var(--color-paint) 0 36px, transparent 36px 60px);
+  }
+  .lane-y {
+    width: 8px;
+    background-image: repeating-linear-gradient(180deg, var(--color-paint) 0 28px, transparent 28px 48px);
+  }
+
+  /* Buttons. Press inverts weight with a small scale: the interface heard you. */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    min-height: 3.25rem;
+    padding: 0.85rem 1.4rem;
+    border-radius: var(--radius-control);
+    font-weight: 700;
+    font-stretch: 108%;
+    font-size: 1.0625rem;
+    line-height: 1.1;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    transition:
+      transform 160ms var(--ease-out),
+      background-color 160ms ease,
+      color 160ms ease,
+      box-shadow 160ms ease;
+  }
+  .btn:active {
+    transform: scale(0.97);
+  }
+  .btn-paint {
+    background: var(--color-paint);
+    color: var(--color-night);
+  }
+  .btn-paint:active {
+    background: var(--color-night);
+    color: var(--color-paint);
+    box-shadow: inset 0 0 0 3px var(--color-paint);
+  }
+  .btn-ghost-night {
+    color: var(--color-lamp);
+    box-shadow: inset 0 0 0 3px var(--color-lamp);
+  }
+  .btn-ghost-night:active {
+    background: var(--color-lamp);
+    color: var(--color-night);
+  }
+  .btn-ghost-day {
+    color: var(--color-ink);
+    box-shadow: inset 0 0 0 3px var(--color-ink);
+  }
+  .btn-ghost-day:active {
+    background: var(--color-ink);
+    color: var(--color-day);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn-paint:hover {
+      background: var(--color-paint-hi);
+    }
+    .btn-ghost-night:hover {
+      background: rgb(243 244 241 / 0.1);
+    }
+    .btn-ghost-day:hover {
+      background: rgb(12 26 49 / 0.06);
+    }
+  }
+  .btn[aria-disabled='true'],
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: progress;
+  }
+  .btn svg {
+    flex: none;
+    transition: transform 200ms var(--ease-out);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover svg.nudge {
+      transform: translateX(3px);
+    }
+  }
+
+  /* Text link with an arrow, used inside sections. */
+  .link-go {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+    transition: text-decoration-color 160ms ease;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .link-go:hover {
+      text-decoration-color: currentColor;
+    }
+    .link-go:hover svg {
+      transform: translateX(3px);
+    }
+  }
+  .link-go svg {
+    transition: transform 200ms var(--ease-out);
+  }
+
+  /* Form fields */
+  .field-label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    margin-bottom: 0.4rem;
+  }
+  .field {
+    display: block;
+    width: 100%;
+    min-height: 3.25rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-field);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    box-shadow: inset 0 0 0 2px #8794a6;
+    transition: box-shadow 140ms ease;
+    appearance: none;
+  }
+  .field::placeholder {
+    color: #5f6b7c;
+  }
+  .field:hover {
+    box-shadow: inset 0 0 0 2px var(--color-ink-2);
+  }
+  .field:focus {
+    outline: none;
+    box-shadow:
+      inset 0 0 0 2px var(--color-ink),
+      0 0 0 3px var(--color-paint);
+  }
+  .field[aria-invalid='true'] {
+    box-shadow: inset 0 0 0 2px var(--color-alert);
+  }
+  .field[aria-invalid='true']:focus {
+    box-shadow:
+      inset 0 0 0 2px var(--color-alert),
+      0 0 0 3px var(--color-paint);
+  }
+  select.field {
+    padding-right: 2.75rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%230c1a31' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.9rem center;
+  }
+  textarea.field {
+    min-height: 8rem;
+    resize: vertical;
+  }
+  /* Long-form reading pages (privacy, credits). */
+  .prose-road {
+    max-width: 68ch;
+    color: var(--color-ink-2);
+  }
+  .prose-road > * + * {
+    margin-top: 1.1rem;
+  }
+  .prose-road h2 {
+    margin-top: 3.5rem;
+    color: var(--color-ink);
+    font-stretch: 112%;
+    font-weight: 700;
+    font-size: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
+    letter-spacing: -0.015em;
+    line-height: 1.15;
+  }
+  .prose-road > h2:first-child {
+    margin-top: 0;
+  }
+  .prose-road h2 + * {
+    margin-top: 1rem;
+  }
+  .prose-road strong {
+    color: var(--color-ink);
+    font-weight: 700;
+  }
+  .prose-road ul {
+    padding-left: 1.25rem;
+    list-style: square;
+  }
+  .prose-road li + li {
+    margin-top: 0.5rem;
+  }
+  .prose-road li::marker {
+    color: var(--color-ink);
+  }
+  .prose-road a {
+    color: var(--color-ink);
+    font-weight: 600;
+    text-decoration: underline;
+  }
+
+  .field-error {
+    display: flex;
+    gap: 0.4rem;
+    align-items: flex-start;
+    margin-top: 0.45rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-alert);
+  }
+}
+
+/* Hero truck (src/components/TruckArt.tsx): an arrival, then a cruise. The
+   script measures how far the truck must travel to start just past the right
+   edge of the screen and hands over the distance (--truck-travel), the wheel
+   turn that covers it (distance / radius, --truck-spin), a duration
+   (--truck-dur) and how far the road moves while it gets up to speed
+   (--truck-lane-in), so nothing slips at any width.
+   Arrival: the drive cruises for its first quarter, then brakes evenly into
+   place: the linear segment covers 0.4 of the distance in 0.25 of the time
+   and hands over to an ease-out-quad (starting slope 2, so the same speed)
+   for the remaining 0.6 in 0.75. The body dives nose-first as the brakes
+   bite and its springs settle it after.
+   Cruise: one speed of 120 drawing units a second. The road's 120-unit
+   pattern streams right in 1s, backward under a truck heading left; each wheel (radius 38) turns once in
+   2 * pi * 38 / 120 = 1.99s. During the arrival the road speeds up from
+   still on an ease-in-quad, ending at exactly that speed as the loop takes
+   over. Only translate, rotate and opacity move. Paused off screen; parked
+   and still under reduced motion. */
+.truck-body {
+  transform-origin: 51% 71%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  /* Until the script decides, the truck waits off stage; if the script never
+     comes, it appears parked after two seconds. */
+  .js .truck-stage:not([data-state]) .truck-rig {
+    animation: truck-wait 500ms var(--ease-out) 2s both;
+  }
+  .truck-stage[data-state='drive'] .truck-rig {
+    animation: truck-drive var(--truck-dur) both;
+  }
+  .truck-stage[data-state='drive'] .truck-wheel-in {
+    animation: truck-roll var(--truck-dur) both;
+  }
+  .truck-stage[data-state='drive'] .truck-body {
+    animation:
+      truck-road var(--truck-dur) linear both,
+      truck-dive 500ms var(--ease-out) calc(var(--truck-dur) * 0.25) both,
+      truck-settle 900ms var(--truck-dur) forwards,
+      truck-ride 1600ms ease-in-out calc(var(--truck-dur) + 900ms) infinite;
+  }
+  .truck-stage[data-state='drive'] .truck-lane-in {
+    animation: truck-lane-in var(--truck-dur) cubic-bezier(0.11, 0, 0.5, 0) both;
+  }
+  .truck-stage[data-state='drive'] .truck-lane {
+    animation: truck-lane 1s linear var(--truck-dur) infinite;
+  }
+  .truck-stage:is([data-state='drive'], [data-state='cruise']) .truck-wheel {
+    animation: truck-spin 1990ms linear infinite;
+  }
+  .truck-stage[data-state='cruise'] .truck-lane {
+    animation: truck-lane 1s linear infinite;
+  }
+  .truck-stage[data-state='cruise'] .truck-body {
+    animation: truck-ride 1600ms ease-in-out infinite;
+  }
+  .truck-stage[data-paused] * {
+    animation-play-state: paused !important;
+  }
+}
+@keyframes truck-wait {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes truck-drive {
+  from {
+    translate: var(--truck-travel) 0;
+    animation-timing-function: linear;
+  }
+  25% {
+    translate: calc(var(--truck-travel) * 0.6) 0;
+    animation-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
+  }
+  to {
+    translate: 0 0;
+  }
+}
+@keyframes truck-roll {
+  from {
+    rotate: var(--truck-spin);
+    animation-timing-function: linear;
+  }
+  25% {
+    rotate: calc(var(--truck-spin) * 0.6);
+    animation-timing-function: cubic-bezier(0.5, 1, 0.89, 1);
+  }
+  to {
+    rotate: 0deg;
+  }
+}
+/* Small, irregular give over the road surface, fading as the truck slows. */
+@keyframes truck-road {
+  0%,
+  60%,
+  100% {
+    translate: 0 0;
+  }
+  5% {
+    translate: 0 -1.2px;
+  }
+  10% {
+    translate: 0 0.4px;
+  }
+  16% {
+    translate: 0 -0.8px;
+  }
+  23% {
+    translate: 0 0.2px;
+  }
+  31% {
+    translate: 0 -0.6px;
+  }
+  44% {
+    translate: 0 -0.25px;
+  }
+}
+@keyframes truck-dive {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: -0.6deg;
+  }
+}
+/* At the stop the dive releases: one rebound, a smaller one, rest. */
+@keyframes truck-settle {
+  from {
+    rotate: -0.6deg;
+    animation-timing-function: cubic-bezier(0.33, 0, 0.3, 1);
+  }
+  34% {
+    rotate: 0.28deg;
+    animation-timing-function: cubic-bezier(0.45, 0, 0.3, 1);
+  }
+  68% {
+    rotate: -0.08deg;
+    animation-timing-function: cubic-bezier(0.45, 0, 0.3, 1);
+  }
+  to {
+    rotate: 0deg;
+  }
+}
+
+@keyframes truck-spin {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: -360deg;
+  }
+}
+@keyframes truck-lane-in {
+  to {
+    translate: var(--truck-lane-in) 0;
+  }
+}
+@keyframes truck-lane {
+  to {
+    translate: 120px 0;
+  }
+}
+/* Suspension over an uneven road while cruising: small, irregular, never a
+   sine. */
+@keyframes truck-ride {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  21% {
+    translate: 0 -0.9px;
+  }
+  46% {
+    translate: 0 0.3px;
+  }
+  72% {
+    translate: 0 -0.5px;
+  }
+}
+
+/* Sections overlap like sheets: each one after the first rides up over the
+   last on rounded shoulders, so the page reads as one road bending onward
+   rather than a stack of boxes. `.flow-on` opts out where a section must
+   continue the one above it seamlessly (after the process lane). */
+main > section:not(:first-child):not(.flow-on),
+main + footer {
+  position: relative;
+  margin-top: calc(var(--radius-sheet) * -1);
+  border-radius: var(--radius-sheet) var(--radius-sheet) 0 0;
+  overflow: clip;
+}
+
+/* The process lane. On desktop the five stops step from night to day, and
+   the whole band rises out of night at the top and settles into daylight at
+   the bottom, so it reads as one shape, not five tiles. Every fade is an
+   opaque ramp through the band's own blues; a transparent fade between navy
+   and white would pass through grey. The steps themselves stay crisp: a soft
+   seam would carry light text onto a light ground. On phones each stop eases
+   in from the one above inside its top padding. */
+@media (min-width: 1024px) {
+  .road-wrap {
+    --rise: var(--color-night) 0, var(--color-dusk) 1.25rem;
+    --settle: var(--color-dawn) calc(100% - 1.75rem), var(--color-paper) 100%;
+    --g1: linear-gradient(var(--color-night) 0 calc(100% - 4.5rem), var(--color-dusk) calc(100% - 3.25rem), var(--settle));
+    --g2: linear-gradient(var(--color-night) 0, var(--color-dusk) 1.5rem calc(100% - 4.5rem), var(--color-predawn) calc(100% - 3.25rem), var(--settle));
+    --g3: linear-gradient(var(--rise), var(--color-predawn) 2.5rem calc(100% - 4.5rem), var(--settle));
+    --g4: linear-gradient(var(--rise), var(--color-predawn) 2rem, var(--color-dawn) 3rem calc(100% - 4.5rem), var(--color-paper) 100%);
+    --g5: linear-gradient(var(--rise), var(--color-predawn) 2rem, var(--color-dawn) 2.75rem, var(--color-paper) 3.5rem);
+    /* Gutters continue the first and last stops off the page edges. */
+    background-image: var(--g1), var(--g5);
+    background-size: 50% 100%;
+    background-position: left top, right top;
+    background-repeat: no-repeat;
+  }
+  .road-stop:nth-child(1) {
+    background-image: var(--g1);
+  }
+  .road-stop:nth-child(2) {
+    background-image: var(--g2);
+  }
+  .road-stop:nth-child(3) {
+    background-image: var(--g3);
+  }
+  .road-stop:nth-child(4) {
+    background-image: var(--g4);
+  }
+  .road-stop:nth-child(5) {
+    background-image: var(--g5);
+  }
+}
+@media (max-width: 1023.98px) {
+  .road-stop {
+    background-image: linear-gradient(to bottom, var(--prev), transparent 2rem);
+  }
+}
+
+/* The lane paints itself in as it scrolls into view, stop by stop, and each
+   marker lights when the paint reaches it. The lane line is only 8px tall,
+   so it reads its progress from a bigger box: each stop on phones, the whole
+   band on desktop. Static everywhere else. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .road-band {
+      view-timeline-name: --road;
+    }
+    .road-stop {
+      view-timeline-name: --stop;
+    }
+    .road-stop .lane-x,
+    .road-stop .lane-y,
+    .road-stop .road-marker {
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: --stop;
+    }
+    .road-stop .lane-y {
+      animation-name: lane-down;
+      animation-range: entry 45% cover 55%;
+    }
+    .road-stop .road-marker {
+      animation-name: marker-on;
+      animation-range: entry 35% entry 75%;
+    }
+    @media (min-width: 1024px) {
+      .road-stop .lane-x,
+      .road-stop .road-marker {
+        animation-timeline: --road;
+      }
+      .road-stop .lane-x {
+        animation-name: lane-across;
+        animation-range: cover calc(15% + var(--i) * 5.2%) cover calc(20.2% + var(--i) * 5.2%);
+      }
+      .road-stop .road-marker {
+        animation-range: cover calc(13.5% + var(--i) * 5.2%) cover calc(15.5% + var(--i) * 5.2%);
+      }
+    }
+  }
+}
+@keyframes lane-across {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes lane-down {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes marker-on {
+  from {
+    opacity: 0.25;
+    scale: 0.5;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+/* Phone quote bar: shown without JS; with JS it waits until no quote-starter
+   sign is on screen. */
+.js .quote-bar:not([data-show]) {
+  transform: translateY(100%);
+  visibility: hidden;
+}
+.quote-bar {
+  transition:
+    transform 320ms var(--ease-drawer),
+    visibility 0s linear 0s;
+}
+.js .quote-bar:not([data-show]) {
+  transition:
+    transform 260ms var(--ease-drawer),
+    visibility 0s linear 260ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  .quote-bar,
+  .js .quote-bar:not([data-show]) {
+    transition: none;
+  }
+}
+
+/* Entrances: content is visible by default and only animates when JS is
+   running and motion is allowed. */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal-ready [data-reveal] > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition:
+      opacity 600ms var(--ease-out),
+      transform 700ms var(--ease-out);
+  }
+  .reveal-ready [data-reveal].is-in > * {
+    opacity: 1;
+    transform: none;
+  }
+  .reveal-ready [data-reveal].is-in > *:nth-child(2) {
+    transition-delay: 70ms;
+  }
+  .reveal-ready [data-reveal].is-in > *:nth-child(3) {
+    transition-delay: 140ms;
+  }
+  .reveal-ready [data-reveal].is-in > *:nth-child(4) {
+    transition-delay: 210ms;
+  }
+  .reveal-ready [data-reveal].is-in > *:nth-child(n + 5) {
+    transition-delay: 280ms;
+  }
+}

@@ -1,0 +1,649 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-29T12:00:00+00:00",
+  "title": "Design System: M J Cargo Movers",
+  "extensions": {
+    "colorMeta": {
+      "night": {
+        "role": "neutral",
+        "displayName": "Night Asphalt",
+        "canonical": "oklch(21.9% 0.049 259.8)",
+        "tonalRamp": [
+          "#080b11",
+          "#1e2531",
+          "#374254",
+          "#53627b",
+          "#73839d",
+          "#99a6bb",
+          "#c0cad9",
+          "#e9eff8"
+        ]
+      },
+      "night-2": {
+        "role": "neutral",
+        "displayName": "Sign Navy",
+        "canonical": "oklch(27.7% 0.070 260.8)",
+        "tonalRamp": [
+          "#070b13",
+          "#1c2535",
+          "#33425c",
+          "#4d6285",
+          "#6d83a8",
+          "#94a6c4",
+          "#bdcae0",
+          "#e7effc"
+        ]
+      },
+      "dusk": {
+        "role": "neutral",
+        "displayName": "Logo Navy",
+        "canonical": "oklch(39.0% 0.089 260.5)",
+        "tonalRamp": [
+          "#060b15",
+          "#19253a",
+          "#2f4262",
+          "#47618e",
+          "#6783b2",
+          "#8fa6cc",
+          "#bacae6",
+          "#e5efff"
+        ]
+      },
+      "predawn": {
+        "role": "neutral",
+        "displayName": "Predawn",
+        "canonical": "oklch(49.1% 0.081 260.0)",
+        "tonalRamp": [
+          "#060b15",
+          "#1a2538",
+          "#304260",
+          "#49628b",
+          "#6983ae",
+          "#91a6c9",
+          "#bbcae3",
+          "#e6effe"
+        ]
+      },
+      "dawn": {
+        "role": "neutral",
+        "displayName": "Dawn",
+        "canonical": "oklch(87.6% 0.023 258.4)",
+        "tonalRamp": [
+          "#0a0b0e",
+          "#22252b",
+          "#3d424b",
+          "#5a626d",
+          "#7b838f",
+          "#9fa6af",
+          "#c5c9d1",
+          "#eceff3"
+        ]
+      },
+      "day": {
+        "role": "neutral",
+        "displayName": "Daylight",
+        "canonical": "oklch(96.6% 0.004 121.6)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252524",
+          "#424241",
+          "#61615f",
+          "#828380",
+          "#a5a5a3",
+          "#c9c9c8",
+          "#eeeeee"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "oklch(100.0% 0.000 89.9)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252525",
+          "#424242",
+          "#616161",
+          "#828282",
+          "#a5a5a5",
+          "#c9c9c9",
+          "#eeeeee"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(21.9% 0.049 259.8)",
+        "tonalRamp": [
+          "#080b11",
+          "#1e2531",
+          "#374254",
+          "#53627b",
+          "#73839d",
+          "#99a6bb",
+          "#c0cad9",
+          "#e9eff8"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "Ink Muted",
+        "canonical": "oklch(40.6% 0.047 259.2)",
+        "tonalRamp": [
+          "#080b11",
+          "#1e2530",
+          "#384353",
+          "#53627a",
+          "#73839c",
+          "#99a6ba",
+          "#c1cad8",
+          "#e9eff7"
+        ]
+      },
+      "lamp": {
+        "role": "neutral",
+        "displayName": "Lamp",
+        "canonical": "oklch(96.6% 0.004 121.6)",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#252524",
+          "#424241",
+          "#61615f",
+          "#828380",
+          "#a5a5a3",
+          "#c9c9c8",
+          "#eeeeee"
+        ]
+      },
+      "lamp-2": {
+        "role": "neutral",
+        "displayName": "Lamp Muted",
+        "canonical": "oklch(82.3% 0.032 258.9)",
+        "tonalRamp": [
+          "#090b0f",
+          "#21252d",
+          "#3b424e",
+          "#586272",
+          "#788394",
+          "#9da6b3",
+          "#c3cad3",
+          "#ebeff4"
+        ]
+      },
+      "paint": {
+        "role": "primary",
+        "displayName": "Lane Paint Green",
+        "canonical": "oklch(62.8% 0.178 134.0)",
+        "tonalRamp": [
+          "#030f00",
+          "#112d00",
+          "#234f00",
+          "#367300",
+          "#57961f",
+          "#85b664",
+          "#b2d69d",
+          "#e1f6d5"
+        ]
+      },
+      "paint-hi": {
+        "role": "primary",
+        "displayName": "Lit Paint",
+        "canonical": "oklch(69.8% 0.190 132.9)",
+        "tonalRamp": [
+          "#030f00",
+          "#112d00",
+          "#234f00",
+          "#367300",
+          "#579601",
+          "#84b65d",
+          "#b2d699",
+          "#e1f7d3"
+        ]
+      },
+      "alert": {
+        "role": "error",
+        "displayName": "Alert Red",
+        "canonical": "oklch(50.0% 0.182 29.5)",
+        "tonalRamp": [
+          "#1c0301",
+          "#470d08",
+          "#771d14",
+          "#aa2e22",
+          "#d25344",
+          "#e98576",
+          "#fdb4a8",
+          "#ffe3db"
+        ]
+      },
+      "field-stroke": {
+        "role": "neutral",
+        "displayName": "Field Stroke",
+        "canonical": "oklch(66.2% 0.031 256.5)",
+        "tonalRamp": [
+          "#090b0f",
+          "#20252c",
+          "#3b434d",
+          "#576271",
+          "#788393",
+          "#9da6b3",
+          "#c3cad3",
+          "#ebeff4"
+        ]
+      },
+      "field-placeholder": {
+        "role": "neutral",
+        "displayName": "Field Placeholder",
+        "canonical": "oklch(52.4% 0.031 257.1)",
+        "tonalRamp": [
+          "#090b0f",
+          "#21252c",
+          "#3b434d",
+          "#576271",
+          "#788393",
+          "#9da6b3",
+          "#c3cad3",
+          "#ebeff4"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Home and 404 H1 only; gantry voice at 125% width. The home hero H1 takes clamp(3.5rem, calc(11.25vw - 4.5rem), 6rem) from 1024px to hold three lines beside the truck."
+      },
+      "headline-page": {
+        "displayName": "Page Headline",
+        "purpose": "Inner-page H1 in the night page head."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section H2s, set to stack like a gantry sign."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "H3s, process stops, definition terms, form legends, prose H2s."
+      },
+      "sign-title": {
+        "displayName": "Sign Title",
+        "purpose": "The question at the top of a road-sign panel; 1.375rem on phones, 1.625rem from 640px."
+      },
+      "lede": {
+        "displayName": "Lede",
+        "purpose": "The sentence under a headline, 34-52ch."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text; 1.0625rem on phones, 1.125rem from 768px; 68ch on long-form pages."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Field labels, the consignment-summary label, the quote starter's next-step line, the footer bottom bar."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "The map privacy note."
+      },
+      "tag": {
+        "displayName": "Tag",
+        "purpose": "Lowercase required/optional tag after a field label, ink-2; the smallest type."
+      },
+      "button": {
+        "displayName": "Button",
+        "purpose": "Every button label."
+      }
+    },
+    "shadows": [
+      {
+        "name": "header-float",
+        "value": "0 18px 40px -18px rgb(4 10 22 / 0.75), 0 0 0 1px rgb(243 244 241 / 0.1)",
+        "purpose": "The floating header bar only; the one drop shadow in the system."
+      },
+      {
+        "name": "ghost-stroke",
+        "value": "inset 0 0 0 3px var(--color-lamp | --color-ink)",
+        "purpose": "Outline of ghost buttons; green variant on the pressed primary button."
+      },
+      {
+        "name": "field-stroke",
+        "value": "inset 0 0 0 2px #8794a6",
+        "purpose": "Resting field outline; ink-2 on hover, ink on focus, alert when invalid."
+      },
+      {
+        "name": "field-focus",
+        "value": "inset 0 0 0 2px var(--color-ink), 0 0 0 3px var(--color-paint)",
+        "purpose": "Focused field: ink stroke plus green halo."
+      },
+      {
+        "name": "focus-outline",
+        "value": "outline: 3px solid var(--color-paint); outline-offset: 3px",
+        "purpose": "Global keyboard focus ring in the logo green; follows the element's own radius."
+      },
+      {
+        "name": "sign-inset",
+        "value": "::before inset 8px; border 2px solid rgb(243 244 241 / 0.75); border-radius calc(var(--radius-sign) - 8px)",
+        "purpose": "The highway-sign inset border, concentric with the panel."
+      },
+      {
+        "name": "truck-contact-shadow",
+        "value": "radial-gradient #03070f 75% -> 0, ellipses under the truck (rx 400, ry 14) and each wheel (rx 50, ry 6) in the 860x420 drawing",
+        "purpose": "The shadow the hero truck casts on its drawn road; moves with the truck. Not page elevation."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Button press scale, arrow nudge, reveal entrances."
+      },
+      {
+        "name": "ease-drawer",
+        "value": "cubic-bezier(0.32, 0.72, 0, 1)",
+        "purpose": "Mobile quote bar slide in (320ms) and out (260ms)."
+      },
+      {
+        "name": "state",
+        "value": "160ms",
+        "purpose": "Button colour, background and stroke changes; press scale 0.97."
+      },
+      {
+        "name": "reveal",
+        "value": "opacity 600ms, translateY(20px) 700ms, 70ms stagger to 280ms",
+        "purpose": "Section entrances when JS runs and motion is allowed."
+      },
+      {
+        "name": "lane-paint-in",
+        "value": "scroll-driven: view-timeline --stop (phones) / --road (desktop); clip-path reveal, linear; markers 0.25->1 opacity, 0.5->1 scale",
+        "purpose": "The process lane paints itself in on scroll; the only scroll effect. Static without support or under reduced motion."
+      },
+      {
+        "name": "light-trails",
+        "value": "canvas; 9 perspective lanes; 12 streaks (<640px) / 24; speed 90-350px/s; 30% green; core 1.5-3.3px; bloom = core + 6px at 0.24x alpha",
+        "purpose": "Runway strips at the foot of night headers (on the home hero, desktop only); paused off screen and in hidden tabs; one still frame under reduced motion."
+      },
+      {
+        "name": "truck-drive",
+        "value": "translate var(--truck-travel) -> 0 over var(--truck-dur); 0-25% linear to 0.6 x travel, then cubic-bezier(0.5, 1, 0.89, 1)",
+        "purpose": "The hero truck cruises in from beyond the right edge of the screen and brakes evenly to a stop. Travel is measured per width; dur = 1100ms + 1.75ms/px, held to 1700-2600ms."
+      },
+      {
+        "name": "truck-roll",
+        "value": "outer wheel layer: rotate var(--truck-spin) -> 0 on the truck-drive keyframes; spin = travel / 38 (radius, drawing units)",
+        "purpose": "Wheels roll the arrival's distance counter-clockwise; no slip."
+      },
+      {
+        "name": "truck-road",
+        "value": "translateY up to -1.2px, irregular, fading out by 60% of the drive; linear",
+        "purpose": "The body's give over the road surface while moving."
+      },
+      {
+        "name": "truck-dive",
+        "value": "rotate 0 -> -0.6deg, 500ms var(--ease-out), from 25% of the drive; origin 51% 71%",
+        "purpose": "Nose-down pitch as the brakes bite."
+      },
+      {
+        "name": "truck-settle",
+        "value": "rotate -0.6 -> 0.28 (34%) -> -0.08 (68%) -> 0deg, 900ms from the stop",
+        "purpose": "The springs settle the body after the arrival; the cruise ride takes over."
+      },
+      {
+        "name": "truck-wait",
+        "value": "opacity 0 -> 1, 500ms var(--ease-out), 2s delay, only under html.js before the script decides",
+        "purpose": "Keeps the truck off stage until the script measures; reveals it parked if the script never runs. Arrival skipped (cruise only) in hidden tabs, off screen, or when the script is >1.9s late; parked under reduced motion."
+      },
+      {
+        "name": "truck-cruise-speed",
+        "value": "120 drawing units/s (860x420 drawing)",
+        "purpose": "The one cruise speed the road, wheels and lane-in derive from."
+      },
+      {
+        "name": "truck-lane",
+        "value": "translate +120px (one 120-unit road pattern), 1s linear infinite; from the end of the arrival, or at once when cruising",
+        "purpose": "Lane paint and asphalt marks stream right, backward under the left-heading truck, between the fixed ring and square."
+      },
+      {
+        "name": "truck-lane-in",
+        "value": "translate 0 -> var(--truck-lane-in) (+60 units per second of arrival), var(--truck-dur) cubic-bezier(0.11, 0, 0.5, 0)",
+        "purpose": "The road speeds up from still to cruise speed during the arrival, ending exactly at loop speed: no seam."
+      },
+      {
+        "name": "truck-spin",
+        "value": "inner wheel layer: rotate 0 -> -360deg, 1990ms linear infinite (2*pi*38/120)",
+        "purpose": "Wheels turn counter-clockwise at the road's speed."
+      },
+      {
+        "name": "truck-ride",
+        "value": "translateY 0, -0.9px (21%), 0.3px (46%), -0.5px (72%); 1600ms ease-in-out infinite, from the end of the settle",
+        "purpose": "Irregular suspension ride over the road while cruising."
+      },
+      {
+        "name": "truck-pause",
+        "value": "IntersectionObserver toggles [data-paused] -> animation-play-state: paused; prefers-reduced-motion: reduce -> parked, no animation",
+        "purpose": "Off-screen pause and reduced-motion still for the hero truck."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ],
+    "scrims": [
+      {
+        "name": "photo-scrim-flat",
+        "value": "rgb(12 26 49 / 0.35)",
+        "purpose": "Flat night wash over the office-band photograph under its sign."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button (Lane Paint)",
+      "kind": "button",
+      "refersTo": "button-paint",
+      "description": "The one forward action per view, as a pill: Get a quote, Continue to quote, Send quote request. Night text only.",
+      "html": "<div class=\"ds-wrap-night\"><button class=\"ds-btn-paint\">Continue to quote <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button></div>",
+      "css": ".ds-wrap-night { background:var(--color-night, #0c1a31); padding:24px; } .ds-btn-paint { display:inline-flex; align-items:center; justify-content:center; gap:0.6rem; min-height:3.25rem; padding:0.85rem 1.4rem; border:0; border-radius:var(--radius-control, 999px); font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); font-weight:700; font-stretch:108%; font-size:1.0625rem; line-height:1.1; cursor:pointer; transition: transform 160ms cubic-bezier(0.23,1,0.32,1), background-color 160ms ease, color 160ms ease, box-shadow 160ms ease; } .ds-btn-paint:focus-visible { outline:3px solid var(--color-paint, #579e06); outline-offset:3px; } .ds-btn-paint:active { transform:scale(0.97); } .ds-btn-paint svg { transition: transform 200ms cubic-bezier(0.23,1,0.32,1); } .ds-btn-paint:hover svg { transform:translateX(3px); } .ds-btn-paint { background:var(--color-paint, #579e06); color:var(--color-night, #0c1a31); } .ds-btn-paint:hover { background:var(--color-paint-hi, #6cb516); } .ds-btn-paint:active { background:var(--color-night, #0c1a31); color:var(--color-paint, #579e06); box-shadow: inset 0 0 0 3px var(--color-paint, #579e06); }"
+    },
+    {
+      "name": "Ghost Button on Night",
+      "kind": "button",
+      "refersTo": "button-ghost-night",
+      "description": "Secondary pill on night grounds: Directions, Menu, Show map, Call.",
+      "html": "<div class=\"ds-wrap-night\"><button class=\"ds-btn-ghost-night\">Directions</button></div>",
+      "css": ".ds-wrap-night { background:var(--color-night, #0c1a31); padding:24px; } .ds-btn-ghost-night { display:inline-flex; align-items:center; justify-content:center; gap:0.6rem; min-height:3.25rem; padding:0.85rem 1.4rem; border:0; border-radius:var(--radius-control, 999px); font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); font-weight:700; font-stretch:108%; font-size:1.0625rem; line-height:1.1; cursor:pointer; transition: transform 160ms cubic-bezier(0.23,1,0.32,1), background-color 160ms ease, color 160ms ease, box-shadow 160ms ease; } .ds-btn-ghost-night:focus-visible { outline:3px solid var(--color-paint, #579e06); outline-offset:3px; } .ds-btn-ghost-night:active { transform:scale(0.97); } .ds-btn-ghost-night svg { transition: transform 200ms cubic-bezier(0.23,1,0.32,1); } .ds-btn-ghost-night:hover svg { transform:translateX(3px); } .ds-btn-ghost-night { background:transparent; color:var(--color-lamp, #f3f4f1); box-shadow: inset 0 0 0 3px var(--color-lamp, #f3f4f1); } .ds-btn-ghost-night:hover { background: rgb(243 244 241 / 0.1); } .ds-btn-ghost-night:active { background:var(--color-lamp, #f3f4f1); color:var(--color-night, #0c1a31); }"
+    },
+    {
+      "name": "Ghost Button on Day",
+      "kind": "button",
+      "refersTo": "button-ghost-day",
+      "description": "Secondary pill on day grounds: How booking works, WhatsApp, Copy details.",
+      "html": "<div class=\"ds-wrap-day\"><button class=\"ds-btn-ghost-day\">How booking works <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button></div>",
+      "css": ".ds-wrap-day { background:var(--color-day, #f3f4f1); padding:24px; font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); color:var(--color-ink, #0c1a31); } .ds-btn-ghost-day { display:inline-flex; align-items:center; justify-content:center; gap:0.6rem; min-height:3.25rem; padding:0.85rem 1.4rem; border:0; border-radius:var(--radius-control, 999px); font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); font-weight:700; font-stretch:108%; font-size:1.0625rem; line-height:1.1; cursor:pointer; transition: transform 160ms cubic-bezier(0.23,1,0.32,1), background-color 160ms ease, color 160ms ease, box-shadow 160ms ease; } .ds-btn-ghost-day:focus-visible { outline:3px solid var(--color-paint, #579e06); outline-offset:3px; } .ds-btn-ghost-day:active { transform:scale(0.97); } .ds-btn-ghost-day svg { transition: transform 200ms cubic-bezier(0.23,1,0.32,1); } .ds-btn-ghost-day:hover svg { transform:translateX(3px); } .ds-btn-ghost-day { background:transparent; color:var(--color-ink, #0c1a31); box-shadow: inset 0 0 0 3px var(--color-ink, #0c1a31); } .ds-btn-ghost-day:hover { background: rgb(12 26 49 / 0.06); } .ds-btn-ghost-day:active { background:var(--color-ink, #0c1a31); color:var(--color-day, #f3f4f1); }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Every input, select and textarea: paper fill, 0.875rem corners, 2px inset stroke, green focus halo.",
+      "html": "<div class=\"ds-wrap-day\"><label class=\"ds-field-label\" for=\"ds-f1\">Pickup from <span class=\"ds-tag\">required</span></label><input id=\"ds-f1\" class=\"ds-field\" placeholder=\"e.g. Taloja MIDC, Navi Mumbai\"></div>",
+      "css": ".ds-wrap-day { background:var(--color-day, #f3f4f1); padding:24px; font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); color:var(--color-ink, #0c1a31); } .ds-field-label { display:block; font-weight:700; font-size:0.9375rem; margin-bottom:0.4rem; } .ds-tag { margin-left:0.5rem; font-size:0.8125rem; font-weight:600; color:var(--color-ink-2, #3a4a63); } .ds-field { display:block; width:100%; min-height:3.25rem; padding:0.75rem 1rem; border:0; border-radius:var(--radius-field, 0.875rem); background:var(--color-paper, #fff); color:var(--color-ink, #0c1a31); font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); font-size:max(16px,1rem); caret-color:var(--color-paint, #579e06); box-shadow: inset 0 0 0 2px #8794a6; transition: box-shadow 140ms ease; appearance:none; } .ds-field::placeholder { color:#5f6b7c; } .ds-field:hover { box-shadow: inset 0 0 0 2px var(--color-ink-2, #3a4a63); } .ds-field:focus { outline:none; box-shadow: inset 0 0 0 2px var(--color-ink, #0c1a31), 0 0 0 3px var(--color-paint, #579e06); }"
+    },
+    {
+      "name": "Floating Header",
+      "kind": "nav",
+      "refersTo": "header-bar",
+      "description": "Solid night-2 bar inside the gutters with 1.75rem corners and the system's one drop shadow; nav pills, current page a lamp pill.",
+      "html": "<div class=\"ds-hwrap\"><div class=\"ds-hbar\"><span class=\"ds-logo\">MJ</span><nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#\">Home</a><a class=\"ds-nav-link\" href=\"#\" aria-current=\"page\">Services</a><a class=\"ds-nav-link\" href=\"#\">Contact</a></nav><a class=\"ds-hcta\" href=\"#\">Get a quote</a></div></div>",
+      "css": ".ds-hwrap { background:var(--color-night, #0c1a31); padding:12px 24px 48px; font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); } .ds-hbar { display:flex; align-items:center; justify-content:space-between; gap:16px; height:5.25rem; padding:0 12px 0 16px; border-radius:var(--radius-sign, 1.75rem); background:var(--color-night-2, #13274a); box-shadow: 0 18px 40px -18px rgb(4 10 22 / 0.75), 0 0 0 1px rgb(243 244 241 / 0.1); } .ds-logo { display:grid; place-items:center; width:3.5rem; height:3.5rem; border-radius:1rem; background:var(--color-dusk, #284474); color:var(--color-lamp, #f3f4f1); font-weight:800; } .ds-nav { display:flex; gap:4px; } .ds-nav-link { display:block; padding:0.5rem 0.875rem; border-radius:999px; font-size:0.96875rem; font-weight:600; color:var(--color-lamp-2, #b9c6da); text-decoration:none; transition: color 150ms ease; } .ds-nav-link:hover { color:var(--color-lamp, #f3f4f1); } .ds-nav-link:focus-visible, .ds-hcta:focus-visible { outline:3px solid var(--color-paint, #579e06); outline-offset:3px; } .ds-nav-link[aria-current=\"page\"] { background:var(--color-lamp, #f3f4f1); color:var(--color-night, #0c1a31); } .ds-hcta { display:inline-flex; align-items:center; min-height:2.75rem; padding:0 1rem; border-radius:999px; background:var(--color-paint, #579e06); color:var(--color-night, #0c1a31); font-weight:700; font-stretch:108%; text-decoration:none; } .ds-hcta:hover { background:var(--color-paint-hi, #6cb516); }"
+    },
+    {
+      "name": "Hero Truck",
+      "kind": "custom",
+      "refersTo": "hero-truck",
+      "description": "Signature first screen: night ground, no photograph; the gantry H1 and lede at left, and an illustrated goods truck in the company livery at right (navy cab under an Indian headboard, white box body with the logo's navy panel, steel-disc wheels, headlamp on, contact shadow), parked on a night road over the quote sign's route (ring origin at right, square destination at left). Simplified and static: the site drives it in from beyond the right edge, brakes it into place, then cruises it with the lane streaming beneath, and paints the logo panel raster where this sample has a plain dusk panel.",
+      "html": "<section class=\"ds-hero\"><div class=\"ds-hero-copy\"><h1 class=\"ds-hero-h1\">Moving your cargo forward</h1><p class=\"ds-hero-lede\"><strong>M J Cargo Movers</strong> moves goods by road from New Panvel, Navi Mumbai, in our own trucks.</p></div><svg class=\"ds-truck\" viewBox=\"0 0 860 420\" role=\"img\" aria-label=\"Illustration of a goods truck in M J Cargo Movers colours\"><defs><linearGradient id=\"ds-box\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#eef1f5\"/><stop offset=\"0.6\" stop-color=\"#d5dce6\"/><stop offset=\"1\" stop-color=\"#a9b6c8\"/></linearGradient><linearGradient id=\"ds-cab\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a5b92\"/><stop offset=\"0.45\" stop-color=\"#284474\"/><stop offset=\"1\" stop-color=\"#192e54\"/></linearGradient><radialGradient id=\"ds-sh\"><stop offset=\"0\" stop-color=\"#03070f\" stop-opacity=\"0.75\"/><stop offset=\"1\" stop-color=\"#03070f\" stop-opacity=\"0\"/></radialGradient></defs><rect x=\"0\" y=\"318\" width=\"860\" height=\"102\" fill=\"#13274a\"/><path d=\"M820 376 H40\" stroke=\"#579e06\" stroke-width=\"5\" stroke-dasharray=\"36 24\"/><circle cx=\"836\" cy=\"376\" r=\"11\" fill=\"#0c1a31\" stroke=\"#579e06\" stroke-width=\"5\"/><rect x=\"10\" y=\"365\" width=\"24\" height=\"22\" rx=\"5\" fill=\"#579e06\"/><ellipse cx=\"440\" cy=\"338\" rx=\"400\" ry=\"14\" fill=\"url(#ds-sh)\"/><rect x=\"96\" y=\"254\" width=\"716\" height=\"16\" fill=\"#0b1322\"/><rect x=\"300\" y=\"262\" width=\"92\" height=\"30\" rx=\"13\" fill=\"#a3afc0\"/><rect x=\"276\" y=\"84\" width=\"536\" height=\"170\" fill=\"url(#ds-box)\"/><rect x=\"276\" y=\"242\" width=\"536\" height=\"14\" fill=\"#6c7a91\"/><rect x=\"394\" y=\"106\" width=\"300\" height=\"128\" rx=\"5\" fill=\"#284474\"/><path d=\"M114 124 L100 86 Q98 77 107 77 H252 Q260 77 260 85 V124 Z\" fill=\"#1c3460\"/><path fill=\"#579e06\" d=\"M150 92 L157 99 L150 106 L143 99 Z M182 92 L189 99 L182 106 L175 99 Z M214 92 L221 99 L214 106 L207 99 Z\"/><path d=\"M264 124 V284 H234 A50 50 0 0 0 138 284 H86 Q74 284 74 272 V204 L88 142 Q92 124 110 124 Z\" fill=\"url(#ds-cab)\"/><path d=\"M120 140 H208 Q214 140 214 146 V192 Q214 196 210 196 H104 L114 146 Q116 140 120 140 Z\" fill=\"#14254a\"/><rect x=\"68\" y=\"230\" width=\"11\" height=\"16\" rx=\"4\" fill=\"#fff7e0\"/><rect x=\"800\" y=\"259\" width=\"12\" height=\"10\" rx=\"2\" fill=\"#e0483a\"/><g fill=\"#0a101c\"><circle cx=\"186\" cy=\"298\" r=\"38\"/><circle cx=\"610\" cy=\"298\" r=\"38\"/><circle cx=\"698\" cy=\"298\" r=\"38\"/></g><g fill=\"#a3afc0\"><circle cx=\"186\" cy=\"298\" r=\"25\"/><circle cx=\"610\" cy=\"298\" r=\"25\"/><circle cx=\"698\" cy=\"298\" r=\"25\"/></g></svg></section>",
+      "css": ".ds-hero { display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center; padding:2.5rem 2rem; background:var(--color-night, #0c1a31); color:var(--color-lamp, #f3f4f1); font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); } .ds-hero-h1 { margin:0; max-width:11ch; font-size:3.25rem; line-height:0.98; font-weight:800; font-stretch:125%; letter-spacing:-0.025em; } .ds-hero-lede { margin:1.5rem 0 0; max-width:40ch; color:var(--color-lamp-2, #b9c6da); font-size:1.1875rem; line-height:1.45; } .ds-hero-lede strong { color:var(--color-lamp, #f3f4f1); font-weight:600; } .ds-truck { width:100%; height:auto; display:block; }"
+    },
+    {
+      "name": "Road Sign Quote Starter",
+      "kind": "custom",
+      "refersTo": "sign",
+      "description": "Signature: a rounded road-sign panel asking where the cargo is going, with a dashed green lane from a round origin to a square destination.",
+      "html": "<div class=\"ds-wrap-night\"><form class=\"ds-sign\"><h2 class=\"ds-sign-title\">Where is your cargo going?</h2><div class=\"ds-route\"><div class=\"ds-rail\"><span class=\"ds-origin\"></span><span class=\"ds-lane\"></span><span class=\"ds-dest\"></span></div><div class=\"ds-fields\"><label class=\"ds-sl\">Pickup from<input class=\"ds-field\" placeholder=\"e.g. Taloja MIDC\"></label><label class=\"ds-sl\">Deliver to<input class=\"ds-field\" placeholder=\"e.g. Pune, Nashik\"></label></div></div><button type=\"button\" class=\"ds-sbtn\">Continue to quote <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button></form></div>",
+      "css": ".ds-wrap-night { background:var(--color-night, #0c1a31); padding:24px; } .ds-sign { position:relative; background:var(--color-night-2, #13274a); color:var(--color-lamp, #f3f4f1); border-radius:var(--radius-sign, 1.75rem); padding:2.25rem; font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); } .ds-sign::before { content:\"\"; position:absolute; inset:8px; border:2px solid rgb(243 244 241 / 0.75); border-radius:calc(var(--radius-sign, 1.75rem) - 8px); pointer-events:none; } .ds-sign-title { margin:0; font-size:1.625rem; line-height:1.25; font-weight:800; font-stretch:118%; letter-spacing:-0.015em; } .ds-route { display:grid; grid-template-columns:1.25rem 1fr; gap:0 1rem; margin-top:1.5rem; } .ds-rail { position:relative; } .ds-origin { position:absolute; top:2.65rem; left:50%; width:16px; height:16px; transform:translateX(-50%); border-radius:50%; background:var(--color-night-2, #13274a); box-shadow:0 0 0 4px var(--color-paint, #579e06); } .ds-lane { position:absolute; top:4.1rem; bottom:3.2rem; left:50%; width:8px; transform:translateX(-50%); background-image:repeating-linear-gradient(180deg, var(--color-paint, #579e06) 0 28px, transparent 28px 48px); } .ds-dest { position:absolute; bottom:1.55rem; left:50%; width:20px; height:20px; transform:translateX(-50%); border-radius:5px; background:var(--color-paint, #579e06); } .ds-fields { display:grid; gap:1rem; } .ds-sl { display:block; font-weight:700; font-size:0.9375rem; } .ds-sl .ds-field { margin-top:0.4rem; font-weight:400; } .ds-field { display:block; width:100%; min-height:3.25rem; padding:0.75rem 1rem; border:0; border-radius:var(--radius-field, 0.875rem); background:var(--color-paper, #fff); color:var(--color-ink, #0c1a31); font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); font-size:max(16px,1rem); caret-color:var(--color-paint, #579e06); box-shadow: inset 0 0 0 2px #8794a6; transition: box-shadow 140ms ease; appearance:none; } .ds-field::placeholder { color:#5f6b7c; } .ds-field:hover { box-shadow: inset 0 0 0 2px var(--color-ink-2, #3a4a63); } .ds-field:focus { outline:none; box-shadow: inset 0 0 0 2px var(--color-ink, #0c1a31), 0 0 0 3px var(--color-paint, #579e06); } .ds-sbtn { margin:1.5rem 0 0 2.25rem; display:inline-flex; align-items:center; gap:0.6rem; min-height:3.25rem; padding:0.85rem 1.4rem; border:0; border-radius:999px; background:var(--color-paint, #579e06); color:var(--color-night, #0c1a31); font:inherit; font-weight:700; font-stretch:108%; font-size:1.0625rem; cursor:pointer; transition: transform 160ms cubic-bezier(0.23,1,0.32,1), background-color 160ms ease; } .ds-sbtn:hover { background:var(--color-paint-hi, #6cb516); } .ds-sbtn:active { transform:scale(0.97); background:var(--color-night, #0c1a31); color:var(--color-paint, #579e06); box-shadow: inset 0 0 0 3px var(--color-paint, #579e06); } .ds-sbtn:focus-visible { outline:3px solid var(--color-paint, #579e06); outline-offset:3px; }"
+    },
+    {
+      "name": "Process Lane",
+      "kind": "custom",
+      "refersTo": "process-lane",
+      "description": "Signature: five crisp stops from night to paper, each with an opaque vertical ramp so the band rises from night and settles into daylight; round markers lead to a square destination.",
+      "html": "<ol class=\"ds-lane-row\"><li class=\"ds-stop ds-g1\"><span class=\"ds-lx\"></span><span class=\"ds-mk\"></span><h3>Tell us about the load</h3></li><li class=\"ds-stop ds-g2\"><span class=\"ds-lx\"></span><span class=\"ds-mk\"></span><h3>We go over the details</h3></li><li class=\"ds-stop ds-g3\"><span class=\"ds-lx\"></span><span class=\"ds-mk\"></span><h3>You get a quotation</h3></li><li class=\"ds-stop ds-g4\"><span class=\"ds-lx\"></span><span class=\"ds-mk\"></span><h3>Confirm, and we schedule a truck</h3></li><li class=\"ds-stop ds-g5\"><span class=\"ds-lx\"></span><span class=\"ds-mk ds-sq\"></span><h3>Stay in touch until delivery</h3></li></ol>",
+      "css": ".ds-lane-row { --n:var(--color-night, #0c1a31); --d:var(--color-dusk, #284474); --p:var(--color-predawn, #45618f); --w:var(--color-dawn, #cdd7e6); --pa:var(--color-paper, #fff); display:grid; grid-template-columns:repeat(5,1fr); margin:0; padding:0; list-style:none; font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); } .ds-stop { position:relative; padding:4rem 1.25rem 6rem; } .ds-stop h3 { margin:0; font-size:1.25rem; font-weight:700; font-stretch:112%; letter-spacing:-0.015em; line-height:1.15; } .ds-g1 { color:var(--color-lamp, #f3f4f1); background:linear-gradient(var(--n) 0 calc(100% - 4.5rem), var(--d) calc(100% - 3.25rem), var(--w) calc(100% - 1.75rem), var(--pa) 100%); } .ds-g2 { color:var(--color-lamp, #f3f4f1); background:linear-gradient(var(--n) 0, var(--d) 1.5rem calc(100% - 4.5rem), var(--p) calc(100% - 3.25rem), var(--w) calc(100% - 1.75rem), var(--pa) 100%); } .ds-g3 { color:var(--color-lamp, #f3f4f1); background:linear-gradient(var(--n) 0, var(--d) 1.25rem, var(--p) 2.5rem calc(100% - 4.5rem), var(--w) calc(100% - 1.75rem), var(--pa) 100%); } .ds-g4 { color:var(--color-ink, #0c1a31); background:linear-gradient(var(--n) 0, var(--d) 1.25rem, var(--p) 2rem, var(--w) 3rem calc(100% - 4.5rem), var(--pa) 100%); } .ds-g5 { color:var(--color-ink, #0c1a31); background:linear-gradient(var(--n) 0, var(--d) 1.25rem, var(--p) 2rem, var(--w) 2.75rem, var(--pa) 3.5rem); } .ds-lx { position:absolute; top:2rem; left:0; right:0; height:8px; transform:translateY(-50%); background-image:repeating-linear-gradient(90deg, var(--color-paint, #579e06) 0 36px, transparent 36px 60px); } .ds-g5 .ds-lx { right:calc(100% - 2rem); } .ds-mk { position:absolute; top:2rem; left:1.25rem; width:20px; height:20px; transform:translateY(-50%); border-radius:50%; background:var(--color-paint, #579e06); } .ds-mk.ds-sq { width:24px; height:24px; border-radius:5px; }"
+    },
+    {
+      "name": "Section Sheets",
+      "kind": "custom",
+      "refersTo": "footer",
+      "description": "Signature: each section after the first rides up over the previous ground on rounded shoulders; the footer is the last sheet, with a pill bottom bar.",
+      "html": "<div class=\"ds-sheets\"><section class=\"ds-s ds-s-night\"><p>Night header</p></section><section class=\"ds-s ds-s-day ds-sheet\"><p>Day section</p></section><footer class=\"ds-s ds-s-foot ds-sheet\"><p>Footer sheet</p><div class=\"ds-fbar\"><span>&copy; M J Cargo Movers</span><span>Privacy policy &middot; Image credits</span></div></footer></div>",
+      "css": ".ds-sheets { font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); --sheet: clamp(1.75rem, 1rem + 3vw, 3.5rem); } .ds-s { padding:3rem 1.5rem calc(3rem + var(--sheet)); } .ds-s p { margin:0; font-weight:700; } .ds-s-night { background:var(--color-night, #0c1a31); color:var(--color-lamp, #f3f4f1); } .ds-s-day { background:var(--color-day, #f3f4f1); color:var(--color-ink, #0c1a31); } .ds-s-foot { background:var(--color-night-2, #13274a); color:var(--color-lamp, #f3f4f1); padding-bottom:1.5rem; } .ds-sheet { position:relative; margin-top:calc(var(--sheet) * -1); border-radius:var(--sheet) var(--sheet) 0 0; overflow:clip; } .ds-fbar { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; margin-top:2rem; padding:1rem 1.5rem; border-radius:999px; background:var(--color-night, #0c1a31); color:var(--color-lamp-2, #b9c6da); font-size:0.9375rem; font-weight:400; }"
+    },
+    {
+      "name": "Consignment Summary",
+      "kind": "custom",
+      "refersTo": "consignment-summary",
+      "description": "Live restatement of the single load being quoted, in a 1rem-cornered night-2 panel; the green arrow is the only green in running text.",
+      "html": "<div class=\"ds-sum\"><p class=\"ds-sum-k\">Your consignment</p><p class=\"ds-sum-v\">Taloja MIDC <span class=\"ds-arrow\">→</span> Chakan, Pune<span class=\"ds-sum-m\"> · Industrial goods · Full truck</span></p></div>",
+      "css": ".ds-sum { background:var(--color-night-2, #13274a); color:var(--color-lamp, #f3f4f1); border-radius:1rem; padding:1rem 1.25rem; font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); } .ds-sum p { margin:0; } .ds-sum-k { font-size:0.9375rem; color:var(--color-lamp-2, #b9c6da); } .ds-sum-v { margin-top:0.25rem !important; font-size:1.125rem; line-height:1.35; font-weight:700; font-stretch:110%; } .ds-arrow { color:var(--color-paint, #579e06); } .ds-sum-m { font-weight:500; color:var(--color-lamp-2, #b9c6da); }"
+    },
+    {
+      "name": "Go Link",
+      "kind": "custom",
+      "refersTo": "link-go",
+      "description": "In-section secondary move: bold underlined text with a nudging arrow, in ink or lamp, never green.",
+      "html": "<div class=\"ds-wrap-day\"><a class=\"ds-go\" href=\"#\">Get a part-load quote <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a></div>",
+      "css": ".ds-wrap-day { background:var(--color-day, #f3f4f1); padding:24px; font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); color:var(--color-ink, #0c1a31); } .ds-go { display:inline-flex; align-items:center; gap:0.45rem; font-weight:700; font-size:1.125rem; color:var(--color-ink, #0c1a31); text-decoration:underline; text-underline-offset:0.2em; text-decoration-thickness:0.08em; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); transition: text-decoration-color 160ms ease; } .ds-go svg { transition: transform 200ms cubic-bezier(0.23,1,0.32,1); } .ds-go:hover { text-decoration-color: currentColor; } .ds-go:hover svg { transform:translateX(3px); } .ds-go:focus-visible { outline:3px solid var(--color-paint, #579e06); outline-offset:3px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Night Highway in Motion",
+    "overview": "**Creative North Star: \"Night Highway in Motion\"**\n\nThe site is the expressway out of Panvel after dark, moving. A consignment travels it from night asphalt to daylight: grounds step from the logo navy's night through dusk and dawn to paper, and moving down a page, or along the process, means moving toward daylight. The road isn't drawn as a stack of boxes. Each section after the first is a sheet that rides up over the one before on rounded shoulders, so the page reads as one road bending on. Corners are soft everywhere a hand touches: pill controls, rounded fields, rounded sign panels and photographs.\n\nFour road materials carry the expression, and the owner's logo sets their colours. **Lane paint** is the logo's green, reserved for the way forward: the primary action, the dashed route lane and its markers, and the green streaks among the light trails. **Light trails** are long-exposure streaks of headlight white and lane green that run toward a vanishing point in a runway strip at the foot of every night header, below the copy and never behind it. **Gantry signs** are filled navy panels with the white inset border of an Indian highway sign, now on generous rounded corners, used wherever the page asks a question. **Gantry type** is Archivo pushed to 125% width and weight 800, the voice of the overhead sign. Everything else is calm sans text on ink or lamp. The logo, a navy box truck with a green outline and lettering, is placed as supplied and never redrawn. On the home hero the road gets its traveller: an original side-on Indian goods carrier drawn in lamp-white light with lane-green accents, driving the quote sign's own route from round origin to square destination. It is the system's one authored hero motion.\n\nDepth is mostly tonal: sheets overlap and grounds step. One layer floats: the header, a solid rounded night-2 bar held inside the page gutters, carrying the system's single drop shadow because it really does sit over the content. It is solid, not glass. The density is that of a confident local trade site: big type, generous section spacing (96px on phones, 160px on desktop), few elements per screen. Imagery is real regional road-freight photography with recorded provenance, on rounded corners, and never presented as the company's own trucks. The home hero carries no photograph: its first screen is night ground and the truck drawn in light.",
+    "keyCharacteristics": [
+      "One night-to-day ground ladder on the logo navy's hue; position on that ladder says how far along the road you are.",
+      "Sections overlap as rounded sheets; there are no hard horizontal cuts between grounds except where daylight continues on purpose.",
+      "The logo green appears only on the way forward: primary action, route lane and markers, route arrow, the green light trails, the hero truck's lights, and focus (outline, field halo, caret, selection).",
+      "Only dark text sits on green; white text on green fails contrast.",
+      "Selected and current state is a navy↔lamp inversion, never green.",
+      "Pill controls, rounded fields, 1.75rem road-sign panels with a 2px lamp inset border.",
+      "One floating layer (the header) with one honest shadow; everything else lies on the road.",
+      "Three motions define the world: the hero truck driving in and cruising on its lane, light trails in the night runway, and the process lane painting itself in on scroll."
+    ],
+    "rules": [
+      {
+        "name": "The Lane Paint Rule",
+        "body": "Green marks only the way forward: the one primary action per view, the route lane and its markers, the route arrow, the green streaks in the runway, the hero truck's lights, and focus (outline, field halo, caret, selection). It never marks selected or current state, never fills a secondary action, never decorates a heading, rule, map or icon. The logo raster is the other exception, because the green is the logo's.",
+        "section": "colors"
+      },
+      {
+        "name": "The Dark-on-Green Rule",
+        "body": "Anything set on paint or paint-hi is night. Never put white or lamp text on the green.",
+        "section": "colors"
+      },
+      {
+        "name": "The Night-to-Day Rule",
+        "body": "Grounds come only from the ladder night → night-2 → dusk → predawn → dawn → day → paper. Stepping toward paper means progress. Each section takes one ground across its sheet.",
+        "section": "colors"
+      },
+      {
+        "name": "The Opaque Ramp Rule",
+        "body": "Grounds blend only inside the process lane, and only as opaque ramps through the ladder's own blues (a transparent fade between navy and white would pass through grey). The steps between stops stay crisp so light text never lands on a light ground. Everywhere else a ground meets the next at a sheet's rounded edge. A photo scrim is not a ground blend: night laid over a photograph at an alpha is the sanctioned exception (see The Single-Navy Scrim Rule).",
+        "section": "colors"
+      },
+      {
+        "name": "The Inversion Rule",
+        "body": "Selected, current and pressed states invert: navy becomes lamp and lamp becomes navy (current nav pill = lamp fill with night text; pressed ghost = filled with its stroke colour). The green button inverts to a night fill with green text and a 3px green inset stroke.",
+        "section": "colors"
+      },
+      {
+        "name": "The Gantry Voice Rule",
+        "body": "Every headline from H2 up is Archivo at 125% width and weight 800 with tight negative tracking and sub-1 leading. Width is the hierarchy. Do not introduce a second display face.",
+        "section": "typography"
+      },
+      {
+        "name": "The Logo-Not-Type Rule",
+        "body": "The business name is shown as the supplied logo raster, never re-set in live type as a mark. Gantry type is for headlines; the logo's own lettering stays in the image.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Floating Layer Rule",
+        "body": "Only the header floats, and only it casts a drop shadow. Everything else lies on the road: sheets, signs, photos and panels separate by ground, radius and overlap, never by shadow. The hero truck's glow is light it emits, not a shadow it casts.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Solid Header Rule",
+        "body": "The floating header is an opaque night-2 bar. No backdrop blur, no glass, no translucency.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Single-Navy Scrim Rule",
+        "body": "Where a sign or copy crosses a photograph, legibility comes from one navy (night) laid over it: no second hue, no hue travel, no blur. The office band uses a flat 35% night wash under its sign, leaving the photograph's subject readable. It is a legibility device, not decoration, and is distinct from multi-hue gradient washes, which the system does not use.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Concentric Inset Rule",
+        "body": "An inset border inside a rounded shape takes the outer radius minus its inset, so the corners run parallel.",
+        "section": "shapes"
+      },
+      {
+        "name": "The Square Destination Rule",
+        "body": "On every route, the origin is round and the destination is square. Both are green.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do lay each section after the first as a sheet that rides up over the previous ground on rounded shoulders (fluid 1.75rem→3.5rem), and opt out only where daylight continues on purpose.",
+      "Do keep every ground on the night-to-day ladder and let progress move toward paper.",
+      "Do reserve the logo green (paint) for the primary action, the route lane and its markers, the consignment-summary arrow, the green light trails, the hero truck's lights, and focus (outline, field halo, caret, selection).",
+      "Do set night text on anything filled green.",
+      "Do show selected, current and pressed state by navy↔lamp inversion.",
+      "Do use a road-sign panel (night-2, 1.75rem corners, 2px lamp inset border at 75%, 8px in, concentric) when the page asks the visitor something.",
+      "Do make every control a pill (999px) at least 52px tall, with strokes drawn as inset rules; fields at 0.875rem corners.",
+      "Do round photographs at 1.5rem, and only the inner edge of a photograph that bleeds off the page.",
+      "Do end every night header with the runway strip, and keep the light trails inside it (the home hero's runway is desktop-only).",
+      "Do make photographs legible under a sign with the single-navy scrim (a flat night wash, leaving the subject readable).",
+      "Do keep the hero truck's motion linked to its one cruise speed (80 drawing units a second): lane, wheels and arrival roll derive from it, only transform and opacity animate, it pauses off screen, and it is complete and still under reduced motion.",
+      "Do set every headline from H2 up in Archivo at 125% width, weight 800, line-height 0.98, −0.025em.",
+      "Do make secondary actions ghost pills (3px lamp or ink inset stroke) or go-links in ink or lamp.",
+      "Do keep a round origin and a square destination on any route drawing.",
+      "Do use the supplied logo rasters as they are: truck in the header, full lockup in the footer.",
+      "Do credit every third-party photograph in the provenance registry and on the credits page, and say on the credits page which photograph is the company's own.",
+      "Do use the owner's own-trucks photograph (720×1280, plates blurred) as the site's proof of the fleet, at moderate sizes only: a 4:5 crop beside \"Your load, on our trucks\" on About and under \"Why businesses choose us\" on Home, with no caption (the alt text carries the description), and on the Open Graph card."
+    ],
+    "donts": [
+      "Don't cut between section grounds with hard horizontal edges; the overlap and shoulders are the seam.",
+      "Don't give anything but the floating header a drop shadow, and don't make the header translucent, blurred or glass.",
+      "Don't run light trails behind copy, outside a runway strip, or without the off-screen pause and reduced-motion still.",
+      "Don't add scroll effects beyond the process lane's paint-in.",
+      "Don't blend grounds anywhere except the process lane's opaque ramps, and never fade navy to white through transparency. (A night scrim over a photograph is not a ground blend.)",
+      "Don't tint a photo scrim with a second hue, travel it across hues, or blur the photograph behind it.",
+      "Don't use green for current or selected state, secondary buttons, headings, icons, dividers, maps or decoration. Outside the forward path, only the logo raster and the hero truck's lights carry green.",
+      "Don't let the hero truck cross copy or leave the screen: it enters out of its own masked left edge and stays whole within the viewport.",
+      "Don't put white or lamp text on green.",
+      "Don't recolour, redraw or outline the logo, or rebuild it in live type.",
+      "Don't add a lane line to page heads or section edges. The lane belongs to the route only.",
+      "Don't introduce a second display face, uppercase labels or open letter-spacing.",
+      "Don't present stock photographs or the drawn truck as a portrait of the company's own fleet (only the owner's own-trucks photograph shows the fleet), or publish ratings, statistics or testimonials as visual proof."
+    ]
+  }
+}
