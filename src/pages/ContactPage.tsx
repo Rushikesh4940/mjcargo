@@ -8,12 +8,12 @@ import { quoteEndpoint } from '../lib/quote'
 const nextSteps = quoteEndpoint
   ? [
       'We read your request and call you back on the number you give us.',
-      'We go over anything we need to know to price the load.',
+      'We go over anything we need to know to price your request.',
       'You get a quotation. Nothing is booked until you say yes.',
     ]
   : [
       'Fill in the form and copy your request when it asks.',
-      'Bring it to the office, and we go over anything we need to price the load.',
+      'Bring it to the office, and we go over anything we need to price your request.',
       'You get a quotation. Nothing is booked until you say yes.',
     ]
 
@@ -24,7 +24,7 @@ export function ContactPage() {
         title="Request a quote"
         lede={
           <p>
-            Tell us where the goods are going and what they are. We'll get back to you with a quotation, and nothing is booked until you agree to it.
+            Choose full truck load transport, warehousing or freight forwarding, and tell us a few details. We'll get back to you with a quotation, and nothing is booked until you agree to it.
           </p>
         }
       />

@@ -12,11 +12,11 @@ Delegated within the brief's stated preference: React + Vite + TypeScript + Tail
 
 ## Users
 
-Primarily businesses — traders, shops and manufacturers in and around Panvel / Navi Mumbai — who need goods moved by road and want one local company to move it. Individuals may also enquire, but copy speaks to business senders first. (Confirmed by owner-side answer, 2026-10-28.)
+Primarily businesses — traders, shops and manufacturers in and around Panvel / Navi Mumbai — who need goods moved by road in a dedicated truck, stored, or their movement arranged, and want one local company for it. Individuals may also enquire, but copy speaks to business senders first. (Confirmed by owner-side answer, 2026-10-28.)
 
 ## Product Purpose
 
-The marketing website for M J Cargo Movers, a goods transport company in New Panvel, Navi Mumbai, that runs its own trucks. Its job is to make the business findable for local searches and turn a visitor with goods to move into a quote request (form, and phone/WhatsApp once a number is published). Success = qualified quote requests with pickup, delivery and cargo details filled in.
+The marketing website for M J Cargo Movers, a New Panvel, Navi Mumbai company offering full truck load transport in its own trucks, warehousing and freight forwarding. Its job is to make the business findable for local searches and turn a visitor with goods to move into a quote request (form, and phone/WhatsApp once a number is published). Success = qualified quote requests: the visitor picks the service and fills in that service's details.
 
 ## Positioning
 
@@ -33,13 +33,16 @@ Confirmed:
 - Business name to use: **M J Cargo Movers** (Justdial lists it as "M J Cargo").
 - Runs its own trucks; it is not a cargo agent (owner, 2026-10-29). Justdial still lists the category as "cargo agent"; the site must not repeat that.
 - Fleet size, truck types and drivers are not yet confirmed: say "our own trucks" and nothing more specific.
-- Road freight — full truckload and part load (confirmed by owner-side answer).
+- Three services (owner, 2026-10-30): **Full Truck Load (FTL) transport** — the customer books the whole truck; **Warehousing** — storage for customers' goods; **Freight forwarding** — arranging and coordinating the movement of cargo. Final positioning: "M J Cargo Movers — Full Truck Load Transportation | Warehousing | Freight Forwarding".
+- The company does NOT offer part load, LTL, shared-truck shipping, parcel delivery or small-consignment shipping. Never advertise or picture these.
 - Address: Plot No 1, Shop No 29, Sector No 1, Shree Ganesh Plaza 1, Khanda Colony, Behind Netrajyot Hospital, New Panvel Road, New Panvel, Navi Mumbai 410206 (Justdial, via search index).
 
 Undecided / unknown — do not publish until confirmed:
 - Phone and WhatsApp number (WhatsApp = same as phone once provided).
 - Email, opening hours (listing hints "until 9 pm"), year established (one source says 2005).
-- Routes, destinations, fleet, vehicle types, insurance, packing, household shifting, warehousing, air/sea freight.
+- Routes, destinations, fleet size, vehicle types, insurance, packing, household shifting.
+- Warehousing details: capacity, area, location, security, temperature control, handling. Do not invent; describe the service plainly.
+- Freight forwarding scope: no international shipping, customs clearance, air or ocean freight, import/export or port services unless confirmed.
 - Production domain.
 
 ## Brand Commitments

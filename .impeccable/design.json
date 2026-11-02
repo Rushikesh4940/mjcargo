@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-29T12:00:00+00:00",
+  "generatedAt": "2026-10-30T12:00:00+05:30",
   "title": "Design System: M J Cargo Movers",
   "extensions": {
     "colorMeta": {
@@ -248,7 +248,15 @@
     "typographyMeta": {
       "display": {
         "displayName": "Display",
-        "purpose": "Home and 404 H1 only; gantry voice at 125% width. The home hero H1 takes clamp(3.5rem, calc(11.25vw - 4.5rem), 6rem) from 1024px to hold three lines beside the truck."
+        "purpose": "The 404 H1; gantry voice at 125% width."
+      },
+      "display-hero": {
+        "displayName": "Display Hero",
+        "purpose": "The home H1 from 1024px: the three services one beat per line, each line held unbroken."
+      },
+      "display-hero-narrow": {
+        "displayName": "Display Hero (narrow)",
+        "purpose": "The home H1 below 1024px at 112% width, sized to the screen so the longest beat fits on one line."
       },
       "headline-page": {
         "displayName": "Page Headline",
@@ -266,6 +274,10 @@
         "displayName": "Sign Title",
         "purpose": "The question at the top of a road-sign panel; 1.375rem on phones, 1.625rem from 640px."
       },
+      "tagline": {
+        "displayName": "Tagline",
+        "purpose": "The promise under each service's H2 on the Services page, ink-2."
+      },
       "lede": {
         "displayName": "Lede",
         "purpose": "The sentence under a headline, 34-52ch."
@@ -276,7 +288,7 @@
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Field labels, the consignment-summary label, the quote starter's next-step line, the footer bottom bar."
+        "purpose": "Field labels, the request-summary label, the quote starter's next-step line, the footer bottom bar."
       },
       "caption": {
         "displayName": "Caption",
@@ -342,12 +354,17 @@
       {
         "name": "state",
         "value": "160ms",
-        "purpose": "Button colour, background and stroke changes; press scale 0.97."
+        "purpose": "Button and service-card colour, background and stroke changes; press scale 0.97 on buttons, 0.98 on service cards."
       },
       {
         "name": "reveal",
         "value": "opacity 600ms, translateY(20px) 700ms, 70ms stagger to 280ms",
         "purpose": "Section entrances when JS runs and motion is allowed."
+      },
+      {
+        "name": "quote-swap",
+        "value": "opacity 0 -> 1 and translate 0 6px -> 0, 220ms var(--ease-out); reduced motion: opacity only, 150ms ease",
+        "purpose": "The chosen service's questions settle into the quote form."
       },
       {
         "name": "lane-paint-in",
@@ -467,8 +484,8 @@
       "name": "Ghost Button on Day",
       "kind": "button",
       "refersTo": "button-ghost-day",
-      "description": "Secondary pill on day grounds: How booking works, WhatsApp, Copy details.",
-      "html": "<div class=\"ds-wrap-day\"><button class=\"ds-btn-ghost-day\">How booking works <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button></div>",
+      "description": "Secondary pill on day grounds: Copy my request, Send on WhatsApp instead, Call.",
+      "html": "<div class=\"ds-wrap-day\"><button class=\"ds-btn-ghost-day\">Copy my request <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button></div>",
       "css": ".ds-wrap-day { background:var(--color-day, #f3f4f1); padding:24px; font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); color:var(--color-ink, #0c1a31); } .ds-btn-ghost-day { display:inline-flex; align-items:center; justify-content:center; gap:0.6rem; min-height:3.25rem; padding:0.85rem 1.4rem; border:0; border-radius:var(--radius-control, 999px); font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); font-weight:700; font-stretch:108%; font-size:1.0625rem; line-height:1.1; cursor:pointer; transition: transform 160ms cubic-bezier(0.23,1,0.32,1), background-color 160ms ease, color 160ms ease, box-shadow 160ms ease; } .ds-btn-ghost-day:focus-visible { outline:3px solid var(--color-paint, #579e06); outline-offset:3px; } .ds-btn-ghost-day:active { transform:scale(0.97); } .ds-btn-ghost-day svg { transition: transform 200ms cubic-bezier(0.23,1,0.32,1); } .ds-btn-ghost-day:hover svg { transform:translateX(3px); } .ds-btn-ghost-day { background:transparent; color:var(--color-ink, #0c1a31); box-shadow: inset 0 0 0 3px var(--color-ink, #0c1a31); } .ds-btn-ghost-day:hover { background: rgb(12 26 49 / 0.06); } .ds-btn-ghost-day:active { background:var(--color-ink, #0c1a31); color:var(--color-day, #f3f4f1); }"
     },
     {
@@ -478,6 +495,14 @@
       "description": "Every input, select and textarea: paper fill, 0.875rem corners, 2px inset stroke, green focus halo.",
       "html": "<div class=\"ds-wrap-day\"><label class=\"ds-field-label\" for=\"ds-f1\">Pickup from <span class=\"ds-tag\">required</span></label><input id=\"ds-f1\" class=\"ds-field\" placeholder=\"e.g. Taloja MIDC, Navi Mumbai\"></div>",
       "css": ".ds-wrap-day { background:var(--color-day, #f3f4f1); padding:24px; font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); color:var(--color-ink, #0c1a31); } .ds-field-label { display:block; font-weight:700; font-size:0.9375rem; margin-bottom:0.4rem; } .ds-tag { margin-left:0.5rem; font-size:0.8125rem; font-weight:600; color:var(--color-ink-2, #3a4a63); } .ds-field { display:block; width:100%; min-height:3.25rem; padding:0.75rem 1rem; border:0; border-radius:var(--radius-field, 0.875rem); background:var(--color-paper, #fff); color:var(--color-ink, #0c1a31); font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); font-size:max(16px,1rem); caret-color:var(--color-paint, #579e06); box-shadow: inset 0 0 0 2px #8794a6; transition: box-shadow 140ms ease; appearance:none; } .ds-field::placeholder { color:#5f6b7c; } .ds-field:hover { box-shadow: inset 0 0 0 2px var(--color-ink-2, #3a4a63); } .ds-field:focus { outline:none; box-shadow: inset 0 0 0 2px var(--color-ink, #0c1a31), 0 0 0 3px var(--color-paint, #579e06); }"
+    },
+    {
+      "name": "Service Picker",
+      "kind": "custom",
+      "refersTo": "service-card",
+      "description": "The quote form’s first question: native radios drawn as cards. Selected inverts to night with a lamp tick (never green); press 0.98; hover only on fine pointers; green focus ring on the card.",
+      "html": "<div class=\"ds-wrap-day\"><fieldset class=\"ds-pick\"><legend class=\"ds-leg\">What do you need a quote for?</legend><div class=\"ds-opts\"><label class=\"ds-opt\"><input type=\"radio\" name=\"ds-service\" value=\"ftl\" checked><span class=\"ds-card\"><span class=\"ds-tick\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span><span class=\"ds-name\">Full truck load</span><span class=\"ds-line\">A whole truck of ours for your goods</span></span></label><label class=\"ds-opt\"><input type=\"radio\" name=\"ds-service\" value=\"warehousing\"><span class=\"ds-card\"><span class=\"ds-tick\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span><span class=\"ds-name\">Warehousing</span><span class=\"ds-line\">Storage for your goods</span></span></label><label class=\"ds-opt\"><input type=\"radio\" name=\"ds-service\" value=\"forwarding\"><span class=\"ds-card\"><span class=\"ds-tick\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"3.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg></span><span class=\"ds-name\">Freight forwarding</span><span class=\"ds-line\">Your cargo’s movement arranged for you</span></span></label></div></fieldset></div>",
+      "css": ".ds-wrap-day { background:var(--color-day, #f3f4f1); padding:24px; font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); color:var(--color-ink, #0c1a31); } .ds-pick { margin:0; padding:0; border:0; } .ds-leg { margin-bottom:1rem; padding:0; font-size:1.375rem; font-weight:700; font-stretch:112%; letter-spacing:-0.015em; line-height:1.15; } .ds-opts { display:grid; gap:0.75rem; grid-template-columns:repeat(auto-fit, minmax(11rem, 1fr)); } .ds-opt { display:block; cursor:pointer; user-select:none; } .ds-opt input { position:absolute; width:1px; height:1px; opacity:0; } .ds-card { position:relative; display:block; height:100%; padding:1rem 3rem 1.1rem 1.1rem; border-radius:var(--radius-panel, 1rem); background:var(--color-paper, #fff); color:var(--color-ink, #0c1a31); box-shadow: inset 0 0 0 2px #8794a6; transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms cubic-bezier(0.23,1,0.32,1); } .ds-name { display:block; font-weight:700; font-stretch:110%; } .ds-line { display:block; margin-top:0.25rem; font-size:0.9375rem; line-height:1.375; color:var(--color-ink-2, #3a4a63); transition: color 160ms ease; } .ds-tick { position:absolute; top:0.95rem; right:0.95rem; display:flex; width:1.375rem; height:1.375rem; align-items:center; justify-content:center; border-radius:999px; color:transparent; box-shadow: inset 0 0 0 2px #8794a6; } .ds-opt:active .ds-card { transform:scale(0.98); } @media (hover: hover) and (pointer: fine) { .ds-opt:hover .ds-card { box-shadow: inset 0 0 0 2px var(--color-ink-2, #3a4a63); } } .ds-opt input:checked + .ds-card { background:var(--color-night, #0c1a31); color:var(--color-lamp, #f3f4f1); box-shadow: inset 0 0 0 2px var(--color-night, #0c1a31); } .ds-opt input:checked + .ds-card .ds-line { color:var(--color-lamp-2, #b9c6da); } .ds-opt input:checked + .ds-card .ds-tick { background:var(--color-lamp, #f3f4f1); color:var(--color-night, #0c1a31); box-shadow:none; } .ds-opt input:focus-visible + .ds-card { outline:3px solid var(--color-paint, #579e06); outline-offset:3px; }"
     },
     {
       "name": "Floating Header",
@@ -491,9 +516,9 @@
       "name": "Hero Truck",
       "kind": "custom",
       "refersTo": "hero-truck",
-      "description": "Signature first screen: night ground, no photograph; the gantry H1 and lede at left, and an illustrated goods truck in the company livery at right (navy cab under an Indian headboard, white box body with the logo's navy panel, steel-disc wheels, headlamp on, contact shadow), parked on a night road over the quote sign's route (ring origin at right, square destination at left). Simplified and static: the site drives it in from beyond the right edge, brakes it into place, then cruises it with the lane streaming beneath, and paints the logo panel raster where this sample has a plain dusk panel.",
-      "html": "<section class=\"ds-hero\"><div class=\"ds-hero-copy\"><h1 class=\"ds-hero-h1\">Moving your cargo forward</h1><p class=\"ds-hero-lede\"><strong>M J Cargo Movers</strong> moves goods by road from New Panvel, Navi Mumbai, in our own trucks.</p></div><svg class=\"ds-truck\" viewBox=\"0 0 860 420\" role=\"img\" aria-label=\"Illustration of a goods truck in M J Cargo Movers colours\"><defs><linearGradient id=\"ds-box\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#eef1f5\"/><stop offset=\"0.6\" stop-color=\"#d5dce6\"/><stop offset=\"1\" stop-color=\"#a9b6c8\"/></linearGradient><linearGradient id=\"ds-cab\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a5b92\"/><stop offset=\"0.45\" stop-color=\"#284474\"/><stop offset=\"1\" stop-color=\"#192e54\"/></linearGradient><radialGradient id=\"ds-sh\"><stop offset=\"0\" stop-color=\"#03070f\" stop-opacity=\"0.75\"/><stop offset=\"1\" stop-color=\"#03070f\" stop-opacity=\"0\"/></radialGradient></defs><rect x=\"0\" y=\"318\" width=\"860\" height=\"102\" fill=\"#13274a\"/><path d=\"M820 376 H40\" stroke=\"#579e06\" stroke-width=\"5\" stroke-dasharray=\"36 24\"/><circle cx=\"836\" cy=\"376\" r=\"11\" fill=\"#0c1a31\" stroke=\"#579e06\" stroke-width=\"5\"/><rect x=\"10\" y=\"365\" width=\"24\" height=\"22\" rx=\"5\" fill=\"#579e06\"/><ellipse cx=\"440\" cy=\"338\" rx=\"400\" ry=\"14\" fill=\"url(#ds-sh)\"/><rect x=\"96\" y=\"254\" width=\"716\" height=\"16\" fill=\"#0b1322\"/><rect x=\"300\" y=\"262\" width=\"92\" height=\"30\" rx=\"13\" fill=\"#a3afc0\"/><rect x=\"276\" y=\"84\" width=\"536\" height=\"170\" fill=\"url(#ds-box)\"/><rect x=\"276\" y=\"242\" width=\"536\" height=\"14\" fill=\"#6c7a91\"/><rect x=\"394\" y=\"106\" width=\"300\" height=\"128\" rx=\"5\" fill=\"#284474\"/><path d=\"M114 124 L100 86 Q98 77 107 77 H252 Q260 77 260 85 V124 Z\" fill=\"#1c3460\"/><path fill=\"#579e06\" d=\"M150 92 L157 99 L150 106 L143 99 Z M182 92 L189 99 L182 106 L175 99 Z M214 92 L221 99 L214 106 L207 99 Z\"/><path d=\"M264 124 V284 H234 A50 50 0 0 0 138 284 H86 Q74 284 74 272 V204 L88 142 Q92 124 110 124 Z\" fill=\"url(#ds-cab)\"/><path d=\"M120 140 H208 Q214 140 214 146 V192 Q214 196 210 196 H104 L114 146 Q116 140 120 140 Z\" fill=\"#14254a\"/><rect x=\"68\" y=\"230\" width=\"11\" height=\"16\" rx=\"4\" fill=\"#fff7e0\"/><rect x=\"800\" y=\"259\" width=\"12\" height=\"10\" rx=\"2\" fill=\"#e0483a\"/><g fill=\"#0a101c\"><circle cx=\"186\" cy=\"298\" r=\"38\"/><circle cx=\"610\" cy=\"298\" r=\"38\"/><circle cx=\"698\" cy=\"298\" r=\"38\"/></g><g fill=\"#a3afc0\"><circle cx=\"186\" cy=\"298\" r=\"25\"/><circle cx=\"610\" cy=\"298\" r=\"25\"/><circle cx=\"698\" cy=\"298\" r=\"25\"/></g></svg></section>",
-      "css": ".ds-hero { display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center; padding:2.5rem 2rem; background:var(--color-night, #0c1a31); color:var(--color-lamp, #f3f4f1); font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); } .ds-hero-h1 { margin:0; max-width:11ch; font-size:3.25rem; line-height:0.98; font-weight:800; font-stretch:125%; letter-spacing:-0.025em; } .ds-hero-lede { margin:1.5rem 0 0; max-width:40ch; color:var(--color-lamp-2, #b9c6da); font-size:1.1875rem; line-height:1.45; } .ds-hero-lede strong { color:var(--color-lamp, #f3f4f1); font-weight:600; } .ds-truck { width:100%; height:auto; display:block; }"
+      "description": "Signature first screen: night ground, no photograph; the three-service gantry H1 across the top with the lede beside it, the quote sign below left, and an illustrated goods truck in the company livery at right (navy cab under an Indian headboard, white box body with the logo's navy panel, steel-disc wheels, headlamp on, contact shadow), parked on a night road over the quote sign's route (ring origin at right, square destination at left). Simplified and static: the site drives it in from beyond the right edge, brakes it into place, then cruises it with the lane streaming beneath, and paints the logo panel raster where this sample has a plain dusk panel. Pending owner decision (2026-10-30): replace the illustration with a cut-out of a side-on photograph of one of the company’s own trucks once supplied; not built.",
+      "html": "<section class=\"ds-hero\"><div class=\"ds-hero-copy\"><h1 class=\"ds-hero-h1\"><span>Full truck loads,</span><span>warehousing and</span><span>freight forwarding.</span></h1><p class=\"ds-hero-lede\">Book a whole truck of ours, store your goods, or let us arrange the journey. <strong>M J Cargo Movers</strong>: one company in New Panvel for all three.</p></div><svg class=\"ds-truck\" viewBox=\"0 0 860 420\" role=\"img\" aria-label=\"Illustration of a goods truck in M J Cargo Movers colours\"><defs><linearGradient id=\"ds-box\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#eef1f5\"/><stop offset=\"0.6\" stop-color=\"#d5dce6\"/><stop offset=\"1\" stop-color=\"#a9b6c8\"/></linearGradient><linearGradient id=\"ds-cab\" x1=\"0\" y1=\"0\" x2=\"0\" y2=\"1\"><stop offset=\"0\" stop-color=\"#3a5b92\"/><stop offset=\"0.45\" stop-color=\"#284474\"/><stop offset=\"1\" stop-color=\"#192e54\"/></linearGradient><radialGradient id=\"ds-sh\"><stop offset=\"0\" stop-color=\"#03070f\" stop-opacity=\"0.75\"/><stop offset=\"1\" stop-color=\"#03070f\" stop-opacity=\"0\"/></radialGradient></defs><rect x=\"0\" y=\"318\" width=\"860\" height=\"102\" fill=\"#13274a\"/><path d=\"M820 376 H40\" stroke=\"#579e06\" stroke-width=\"5\" stroke-dasharray=\"36 24\"/><circle cx=\"836\" cy=\"376\" r=\"11\" fill=\"#0c1a31\" stroke=\"#579e06\" stroke-width=\"5\"/><rect x=\"10\" y=\"365\" width=\"24\" height=\"22\" rx=\"5\" fill=\"#579e06\"/><ellipse cx=\"440\" cy=\"338\" rx=\"400\" ry=\"14\" fill=\"url(#ds-sh)\"/><rect x=\"96\" y=\"254\" width=\"716\" height=\"16\" fill=\"#0b1322\"/><rect x=\"300\" y=\"262\" width=\"92\" height=\"30\" rx=\"13\" fill=\"#a3afc0\"/><rect x=\"276\" y=\"84\" width=\"536\" height=\"170\" fill=\"url(#ds-box)\"/><rect x=\"276\" y=\"242\" width=\"536\" height=\"14\" fill=\"#6c7a91\"/><rect x=\"394\" y=\"106\" width=\"300\" height=\"128\" rx=\"5\" fill=\"#284474\"/><path d=\"M114 124 L100 86 Q98 77 107 77 H252 Q260 77 260 85 V124 Z\" fill=\"#1c3460\"/><path fill=\"#579e06\" d=\"M150 92 L157 99 L150 106 L143 99 Z M182 92 L189 99 L182 106 L175 99 Z M214 92 L221 99 L214 106 L207 99 Z\"/><path d=\"M264 124 V284 H234 A50 50 0 0 0 138 284 H86 Q74 284 74 272 V204 L88 142 Q92 124 110 124 Z\" fill=\"url(#ds-cab)\"/><path d=\"M120 140 H208 Q214 140 214 146 V192 Q214 196 210 196 H104 L114 146 Q116 140 120 140 Z\" fill=\"#14254a\"/><rect x=\"68\" y=\"230\" width=\"11\" height=\"16\" rx=\"4\" fill=\"#fff7e0\"/><rect x=\"800\" y=\"259\" width=\"12\" height=\"10\" rx=\"2\" fill=\"#e0483a\"/><g fill=\"#0a101c\"><circle cx=\"186\" cy=\"298\" r=\"38\"/><circle cx=\"610\" cy=\"298\" r=\"38\"/><circle cx=\"698\" cy=\"298\" r=\"38\"/></g><g fill=\"#a3afc0\"><circle cx=\"186\" cy=\"298\" r=\"25\"/><circle cx=\"610\" cy=\"298\" r=\"25\"/><circle cx=\"698\" cy=\"298\" r=\"25\"/></g></svg></section>",
+      "css": ".ds-hero { display:grid; grid-template-columns:1fr 1fr; gap:2rem; align-items:center; padding:2.5rem 2rem; background:var(--color-night, #0c1a31); color:var(--color-lamp, #f3f4f1); font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); } .ds-hero-h1 { margin:0; font-size:clamp(1.75rem, 4.3vw, 4.25rem); line-height:0.98; font-weight:800; font-stretch:125%; letter-spacing:-0.025em; } .ds-hero-lede { margin:1.5rem 0 0; max-width:40ch; color:var(--color-lamp-2, #b9c6da); font-size:1.1875rem; line-height:1.45; } .ds-hero-lede strong { color:var(--color-lamp, #f3f4f1); font-weight:600; } .ds-truck { width:100%; height:auto; display:block; } .ds-hero-h1 span { display:block; white-space:nowrap; }"
     },
     {
       "name": "Road Sign Quote Starter",
@@ -520,25 +545,25 @@
       "css": ".ds-sheets { font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); --sheet: clamp(1.75rem, 1rem + 3vw, 3.5rem); } .ds-s { padding:3rem 1.5rem calc(3rem + var(--sheet)); } .ds-s p { margin:0; font-weight:700; } .ds-s-night { background:var(--color-night, #0c1a31); color:var(--color-lamp, #f3f4f1); } .ds-s-day { background:var(--color-day, #f3f4f1); color:var(--color-ink, #0c1a31); } .ds-s-foot { background:var(--color-night-2, #13274a); color:var(--color-lamp, #f3f4f1); padding-bottom:1.5rem; } .ds-sheet { position:relative; margin-top:calc(var(--sheet) * -1); border-radius:var(--sheet) var(--sheet) 0 0; overflow:clip; } .ds-fbar { display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; margin-top:2rem; padding:1rem 1.5rem; border-radius:999px; background:var(--color-night, #0c1a31); color:var(--color-lamp-2, #b9c6da); font-size:0.9375rem; font-weight:400; }"
     },
     {
-      "name": "Consignment Summary",
+      "name": "Request Summary",
       "kind": "custom",
-      "refersTo": "consignment-summary",
-      "description": "Live restatement of the single load being quoted, in a 1rem-cornered night-2 panel; the green arrow is the only green in running text.",
-      "html": "<div class=\"ds-sum\"><p class=\"ds-sum-k\">Your consignment</p><p class=\"ds-sum-v\">Taloja MIDC <span class=\"ds-arrow\">→</span> Chakan, Pune<span class=\"ds-sum-m\"> · Industrial goods · Full truck</span></p></div>",
-      "css": ".ds-sum { background:var(--color-night-2, #13274a); color:var(--color-lamp, #f3f4f1); border-radius:1rem; padding:1rem 1.25rem; font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); } .ds-sum p { margin:0; } .ds-sum-k { font-size:0.9375rem; color:var(--color-lamp-2, #b9c6da); } .ds-sum-v { margin-top:0.25rem !important; font-size:1.125rem; line-height:1.35; font-weight:700; font-stretch:110%; } .ds-arrow { color:var(--color-paint, #579e06); } .ds-sum-m { font-weight:500; color:var(--color-lamp-2, #b9c6da); }"
+      "refersTo": "request-summary",
+      "description": "Live one-line restatement of the request, per service, in a 1rem-cornered night-2 panel; the green arrow icon (with a screen-reader-only \"to\") is the only green in running text. Warehousing reads \"Storage\" with no arrow.",
+      "html": "<div class=\"ds-sum\"><p class=\"ds-sum-k\">Your request · Full truck load transport</p><p class=\"ds-sum-v\">Taloja MIDC <span class=\"ds-arrow\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></span><span class=\"ds-sr\">to</span> Chakan, Pune<span class=\"ds-sum-m\"> · Steel coils · 9 tonnes</span></p></div>",
+      "css": ".ds-sum { background:var(--color-night-2, #13274a); color:var(--color-lamp, #f3f4f1); border-radius:1rem; padding:1rem 1.25rem; font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); } .ds-sum p { margin:0; } .ds-sum-k { font-size:0.9375rem; color:var(--color-lamp-2, #b9c6da); } .ds-sum-v { margin-top:0.25rem !important; font-size:1.125rem; line-height:1.35; font-weight:700; font-stretch:110%; } .ds-arrow { color:var(--color-paint, #579e06); } .ds-arrow svg { display:inline; vertical-align:middle; transform:translateY(-1px); } .ds-sr { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; } .ds-sum-m { font-weight:500; color:var(--color-lamp-2, #b9c6da); }"
     },
     {
       "name": "Go Link",
       "kind": "custom",
       "refersTo": "link-go",
       "description": "In-section secondary move: bold underlined text with a nudging arrow, in ink or lamp, never green.",
-      "html": "<div class=\"ds-wrap-day\"><a class=\"ds-go\" href=\"#\">Get a part-load quote <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a></div>",
+      "html": "<div class=\"ds-wrap-day\"><a class=\"ds-go\" href=\"#\">Get a freight forwarding quote <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a></div>",
       "css": ".ds-wrap-day { background:var(--color-day, #f3f4f1); padding:24px; font-family: var(--font-sans, 'Archivo Variable', ui-sans-serif, system-ui, sans-serif); color:var(--color-ink, #0c1a31); } .ds-go { display:inline-flex; align-items:center; gap:0.45rem; font-weight:700; font-size:1.125rem; color:var(--color-ink, #0c1a31); text-decoration:underline; text-underline-offset:0.2em; text-decoration-thickness:0.08em; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); transition: text-decoration-color 160ms ease; } .ds-go svg { transition: transform 200ms cubic-bezier(0.23,1,0.32,1); } .ds-go:hover { text-decoration-color: currentColor; } .ds-go:hover svg { transform:translateX(3px); } .ds-go:focus-visible { outline:3px solid var(--color-paint, #579e06); outline-offset:3px; }"
     }
   ],
   "narrative": {
     "northStar": "Night Highway in Motion",
-    "overview": "**Creative North Star: \"Night Highway in Motion\"**\n\nThe site is the expressway out of Panvel after dark, moving. A consignment travels it from night asphalt to daylight: grounds step from the logo navy's night through dusk and dawn to paper, and moving down a page, or along the process, means moving toward daylight. The road isn't drawn as a stack of boxes. Each section after the first is a sheet that rides up over the one before on rounded shoulders, so the page reads as one road bending on. Corners are soft everywhere a hand touches: pill controls, rounded fields, rounded sign panels and photographs.\n\nFour road materials carry the expression, and the owner's logo sets their colours. **Lane paint** is the logo's green, reserved for the way forward: the primary action, the dashed route lane and its markers, and the green streaks among the light trails. **Light trails** are long-exposure streaks of headlight white and lane green that run toward a vanishing point in a runway strip at the foot of every night header, below the copy and never behind it. **Gantry signs** are filled navy panels with the white inset border of an Indian highway sign, now on generous rounded corners, used wherever the page asks a question. **Gantry type** is Archivo pushed to 125% width and weight 800, the voice of the overhead sign. Everything else is calm sans text on ink or lamp. The logo, a navy box truck with a green outline and lettering, is placed as supplied and never redrawn. On the home hero the road gets its traveller: an original side-on Indian goods carrier drawn in lamp-white light with lane-green accents, driving the quote sign's own route from round origin to square destination. It is the system's one authored hero motion.\n\nDepth is mostly tonal: sheets overlap and grounds step. One layer floats: the header, a solid rounded night-2 bar held inside the page gutters, carrying the system's single drop shadow because it really does sit over the content. It is solid, not glass. The density is that of a confident local trade site: big type, generous section spacing (96px on phones, 160px on desktop), few elements per screen. Imagery is real regional road-freight photography with recorded provenance, on rounded corners, and never presented as the company's own trucks. The home hero carries no photograph: its first screen is night ground and the truck drawn in light.",
+    "overview": "**Creative North Star: \"Night Highway in Motion\"**\n\nThe site is the expressway out of Panvel after dark, moving. A consignment travels it from night asphalt to daylight: grounds step from the logo navy's night through dusk and dawn to paper, and moving down a page, or along the process, means moving toward daylight. The road isn't drawn as a stack of boxes. Each section after the first is a sheet that rides up over the one before on rounded shoulders, so the page reads as one road bending on. Corners are soft everywhere a hand touches: pill controls, rounded fields, rounded sign panels and photographs.\n\nFour road materials carry the expression, and the owner's logo sets their colours. **Lane paint** is the logo's green, reserved for the way forward: the primary action, the dashed route lane and its markers, and the green streaks among the light trails. **Light trails** are long-exposure streaks of headlight white and lane green that run toward a vanishing point in a runway strip at the foot of every night header, below the copy and never behind it. **Gantry signs** are filled navy panels with the white inset border of an Indian highway sign, now on generous rounded corners, used wherever the page asks a question. **Gantry type** is Archivo pushed to 125% width and weight 800, the voice of the overhead sign. Everything else is calm sans text on ink or lamp. The logo, a navy box truck with a green outline and lettering, is placed as supplied and never redrawn. On the home hero the road gets its traveller: an illustrated side-on goods truck in the company's livery (navy cab under an Indian headboard, white box body carrying the logo's navy panel) that drives in from beyond the right edge of the screen along the quote sign's own route and pulls up beside the headline. It is the system's one authored hero motion: an arrival, then a continuous cruise with the road streaming beneath it. The owner has decided to replace the illustration with a cut-out of a side-on photograph of one of the company's own trucks, driving in and parking on the same route; that change is pending the photograph, and the illustration stays until it is supplied.\n\nDepth is mostly tonal: sheets overlap and grounds step. One layer floats: the header, a solid rounded night-2 bar held inside the page gutters, carrying the system's single drop shadow because it really does sit over the content. It is solid, not glass. The density is that of a confident local trade site: big type, generous section spacing (96px on phones, 160px on desktop), few elements per screen. Imagery is sparse and honest, on rounded corners. The owner's own-trucks photograph is the only picture of the fleet. Two credited stock photographs remain, the expressway behind the office band and a warehouse aisle for warehousing, and neither is presented as the company's. Freight forwarding is shown by a credited stock photograph of road freight, likewise not presented as the company's. The home hero carries no photograph: its first screen is night ground and the illustrated truck.",
     "keyCharacteristics": [
       "One night-to-day ground ladder on the logo navy's hue; position on that ladder says how far along the road you are.",
       "Sections overlap as rounded sheets; there are no hard horizontal cuts between grounds except where daylight continues on purpose.",
@@ -572,7 +597,7 @@
       },
       {
         "name": "The Inversion Rule",
-        "body": "Selected, current and pressed states invert: navy becomes lamp and lamp becomes navy (current nav pill = lamp fill with night text; pressed ghost = filled with its stroke colour). The green button inverts to a night fill with green text and a 3px green inset stroke.",
+        "body": "Selected, current and pressed states invert: navy becomes lamp and lamp becomes navy (current nav pill = lamp fill with night text; selected service card = night fill with lamp text and a lamp tick; pressed ghost = filled with its stroke colour). The green button inverts to a night fill with green text and a 3px green inset stroke.",
         "section": "colors"
       },
       {
@@ -587,7 +612,7 @@
       },
       {
         "name": "The One Floating Layer Rule",
-        "body": "Only the header floats, and only it casts a drop shadow. Everything else lies on the road: sheets, signs, photos and panels separate by ground, radius and overlap, never by shadow. The hero truck's glow is light it emits, not a shadow it casts.",
+        "body": "Only the header floats, and only it casts a drop shadow. Everything else lies on the road: sheets, signs, photos and panels separate by ground, radius and overlap, never by shadow. The hero truck's contact shadow lies on its own drawn road, inside the illustration.",
         "section": "elevation"
       },
       {
@@ -614,7 +639,7 @@
     "dos": [
       "Do lay each section after the first as a sheet that rides up over the previous ground on rounded shoulders (fluid 1.75rem→3.5rem), and opt out only where daylight continues on purpose.",
       "Do keep every ground on the night-to-day ladder and let progress move toward paper.",
-      "Do reserve the logo green (paint) for the primary action, the route lane and its markers, the consignment-summary arrow, the green light trails, the hero truck's lights, and focus (outline, field halo, caret, selection).",
+      "Do reserve the logo green (paint) for the primary action, the route lane and its markers, the request-summary arrow, the green light trails, the hero truck's lights, and focus (outline, field halo, caret, selection).",
       "Do set night text on anything filled green.",
       "Do show selected, current and pressed state by navy↔lamp inversion.",
       "Do use a road-sign panel (night-2, 1.75rem corners, 2px lamp inset border at 75%, 8px in, concentric) when the page asks the visitor something.",
@@ -622,13 +647,14 @@
       "Do round photographs at 1.5rem, and only the inner edge of a photograph that bleeds off the page.",
       "Do end every night header with the runway strip, and keep the light trails inside it (the home hero's runway is desktop-only).",
       "Do make photographs legible under a sign with the single-navy scrim (a flat night wash, leaving the subject readable).",
-      "Do keep the hero truck's motion linked to its one cruise speed (80 drawing units a second): lane, wheels and arrival roll derive from it, only transform and opacity animate, it pauses off screen, and it is complete and still under reduced motion.",
+      "Do keep the hero truck's wheels tied to the distance it covers (turn = travel ÷ radius, on the same keyframes), animate only translate, rotate and opacity, play the entrance once and then cruise at one linked speed (120 drawing units a second: road, wheels and lane-in derive from it), pause it off screen, and park it under reduced motion.",
       "Do set every headline from H2 up in Archivo at 125% width, weight 800, line-height 0.98, −0.025em.",
       "Do make secondary actions ghost pills (3px lamp or ink inset stroke) or go-links in ink or lamp.",
       "Do keep a round origin and a square destination on any route drawing.",
-      "Do use the supplied logo rasters as they are: truck in the header, full lockup in the footer.",
+      "Do show warehousing and freight forwarding with credited, realistic stock photographs of road freight and storage, never ports, aircraft or ships.",
+      "Do use the supplied logo rasters as they are: truck in the header, full lockup in the footer, the navy panel as the hero truck's livery.",
       "Do credit every third-party photograph in the provenance registry and on the credits page, and say on the credits page which photograph is the company's own.",
-      "Do use the owner's own-trucks photograph (720×1280, plates blurred) as the site's proof of the fleet, at moderate sizes only: a 4:5 crop beside \"Your load, on our trucks\" on About and under \"Why businesses choose us\" on Home, with no caption (the alt text carries the description), and on the Open Graph card."
+      "Do use the owner's own-trucks photograph (720×1280, plates blurred) as the site's proof of the fleet, at moderate sizes only: a 4:5 crop leading full truck load transport on Home (\"Three services, one company\") and on Services, and beside \"Your load, on our trucks\" on About, with no caption (the alt text carries the description), and on the Open Graph card."
     ],
     "donts": [
       "Don't cut between section grounds with hard horizontal edges; the overlap and shoulders are the seam.",
@@ -638,12 +664,14 @@
       "Don't blend grounds anywhere except the process lane's opaque ramps, and never fade navy to white through transparency. (A night scrim over a photograph is not a ground blend.)",
       "Don't tint a photo scrim with a second hue, travel it across hues, or blur the photograph behind it.",
       "Don't use green for current or selected state, secondary buttons, headings, icons, dividers, maps or decoration. Outside the forward path, only the logo raster and the hero truck's lights carry green.",
-      "Don't let the hero truck cross copy or leave the screen: it enters out of its own masked left edge and stays whole within the viewport.",
+      "Don't let the hero truck cross copy or replay its entrance: it enters once from beyond the right edge and cruises whole within its column, the road moving under it.",
       "Don't put white or lamp text on green.",
       "Don't recolour, redraw or outline the logo, or rebuild it in live type.",
       "Don't add a lane line to page heads or section edges. The lane belongs to the route only.",
       "Don't introduce a second display face, uppercase labels or open letter-spacing.",
-      "Don't present stock photographs or the drawn truck as a portrait of the company's own fleet (only the owner's own-trucks photograph shows the fleet), or publish ratings, statistics or testimonials as visual proof."
+      "Don't present stock photographs or the drawn truck as a portrait of the company's own fleet (only the owner's own-trucks photograph shows the fleet), present the warehouse or freight-forwarding photograph as the company's own facility or vehicle, or publish ratings, statistics or testimonials as visual proof.",
+      "Don't show or draw part loads, shared trucks or parcels, or illustrate warehousing and forwarding with invented facilities, ports, aircraft or ships.",
+      "Don't colour a selected service card green; selection is the night inversion with a lamp tick."
     ]
   }
 }

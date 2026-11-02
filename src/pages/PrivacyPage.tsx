@@ -17,7 +17,7 @@ export function PrivacyPage() {
             <h2>What we collect</h2>
             <p>
               Only what you type into the quote request form: your name, phone number and, if you give them, your company name and email address, along with
-              the details of your consignment (pickup and delivery locations, type of goods, weight or quantity, preferred date and any notes).
+              the details of the service you choose (for example pickup and delivery locations or origin and destination, the goods, weight or quantity, storage period and location, preferred date and any notes).
             </p>
             <p>The website does not use analytics, advertising trackers or cookies.</p>
 

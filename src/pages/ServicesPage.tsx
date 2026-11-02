@@ -5,25 +5,22 @@ import { Photo } from '../components/Photo'
 import { QuoteStarter } from '../components/QuoteStarter'
 import { RoadProcess } from '../components/RoadProcess'
 import { photoAlts } from '../data/photo-credits'
+import { quoteHref, services } from '../data/services'
 
 export function ServicesPage() {
   return (
     <>
       <PageHeader
-        title="Road freight, booked from New Panvel"
+        title="Full truck load, warehousing and freight forwarding"
         lede={
           <p>
-            Full-truck and part-load road freight for businesses in and around Panvel and Navi Mumbai, in our own trucks. Tell us the load and where
-            it's going: we quote, schedule a truck, and keep you posted.
+            Three services for businesses in and around Panvel and Navi Mumbai: a dedicated truck of our own for your whole load, storage for your
+            goods, and freight forwarding to arrange how your cargo moves.
           </p>
         }
       >
         <nav aria-label="On this page" className="mt-10 flex flex-wrap gap-3 lg:mt-12">
-          {[
-            { href: '#full-truck', label: 'Full truckload' },
-            { href: '#part-load', label: 'Part load' },
-            { href: '#booking', label: 'How booking works' },
-          ].map((l) => (
+          {[...services.map((s) => ({ href: `#${s.anchor}`, label: s.short })), { href: '#booking', label: 'How a truck load is booked' }].map((l) => (
             <a key={l.href} href={l.href} className="btn btn-ghost-night !min-h-11 !px-4 !text-[0.96875rem]">
               {l.label}
               <ArrowDown className="size-4" aria-hidden="true" />
@@ -34,48 +31,82 @@ export function ServicesPage() {
 
       <Service
         id="full-truck"
-        title="Full truckload"
+        name="Full truck load transport"
+        tagline="A whole truck, dedicated to your load."
         ground="bg-day"
-        photo={
+        media={
           <Photo
-            name="truck-front"
-            alt={photoAlts['truck-front']}
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            position="50% 55%"
-            className="rounded-[var(--radius-photo)] aspect-[4/3] w-full object-cover lg:aspect-[5/6]"
+            name="own-trucks"
+            alt={photoAlts['own-trucks']}
+            sizes="(min-width: 1024px) 34vw, (min-width: 640px) 28rem, 100vw"
+            position="50% 58%"
+            className="mx-auto aspect-[4/5] w-full max-w-[28rem] rounded-[var(--radius-photo)] object-cover lg:max-w-none"
           />
         }
-        intro="A truck dedicated to your consignment, loaded at your pickup point and driven to the delivery point without sharing space with anyone else's goods."
-        suits={['Bulk stock and large orders', 'Goods that shouldn’t travel alongside other loads', 'Consignments that need to go straight from pickup to delivery']}
-        note="Tell us roughly how much there is. It decides what size of vehicle the load needs, and that is the biggest part of the price."
-        cta={{ href: '/contact/?load=Full%20truck#quote', label: 'Get a full-truck quote' }}
+        intro="You book the whole truck, so your goods are the only goods on board: loaded at your pickup point and driven straight to the delivery point."
+        listTitle="Suited to"
+        list={['Bulk stock and large orders', 'Goods that shouldn’t share space with anyone else’s', 'Consignments that need to go straight from pickup to delivery']}
+        note="Tell us roughly how much there is. It decides what size of truck the load needs, and that is the biggest part of the price."
+        cta={{ href: quoteHref('ftl'), label: 'Get a full truck load quote' }}
       />
 
       <Service
-        id="part-load"
-        title="Part load"
+        id="warehousing"
+        name="Warehousing"
+        tagline="Secure storage solutions for your business."
         ground="bg-paper"
         flip
-        photo={
+        media={
           <Photo
-            name="road-truck"
-            alt={photoAlts['road-truck']}
-            sizes="(min-width: 1024px) 50vw, 100vw"
-            position="58% 60%"
-            className="rounded-[var(--radius-photo)] aspect-[4/3] w-full object-cover lg:aspect-[5/6]"
+            name="warehouse"
+            alt={photoAlts.warehouse}
+            sizes="(min-width: 1024px) 40vw, 100vw"
+            position="50% 55%"
+            className="aspect-[4/3] w-full rounded-[var(--radius-photo)] object-cover"
           />
         }
-        intro="For consignments that don't need a whole vehicle. Your goods travel with other loads heading the same way, so you pay for the space you use."
-        suits={['Smaller consignments', 'Regular dispatches that never fill a truck', 'Senders who can be flexible on the pickup day']}
-        note="Part loads move when one of our trucks has space going your way. If your date is fixed, say so when you enquire and we'll tell you whether a part load can meet it."
-        cta={{ href: '/contact/?load=Part%20load#quote', label: 'Get a part-load quote' }}
+        intro="When your goods need to wait, we can store them: between consignments, ahead of a delivery date, or while you free up space of your own."
+        listTitle="Why use storage"
+        list={[
+          'Keep stock off your own premises until it is needed',
+          'Hold goods between one consignment and the next',
+          'Store and transport with the same company, so the next move is one phone call away',
+        ]}
+        note="Tell us what you need to store, roughly how much, and for how long. We'll confirm space, location and terms with you when you enquire."
+        cta={{ href: quoteHref('warehousing'), label: 'Ask about storage space' }}
+      />
+
+      <Service
+        id="freight-forwarding"
+        name="Freight forwarding"
+        tagline="Connecting cargo to its destination through reliable freight forwarding."
+        ground="bg-day"
+        media={
+          <Photo
+            name="freight-forwarding"
+            alt={photoAlts['freight-forwarding']}
+            sizes="(min-width: 1024px) 40vw, 100vw"
+            position="40% 60%"
+            className="aspect-[4/3] w-full rounded-[var(--radius-photo)] object-cover"
+          />
+        }
+        intro="Some consignments need more than one truck, more than one leg or more than one handover. Freight forwarding means we arrange the whole movement for you and keep it on track from origin to destination."
+        listTitle="What we arrange"
+        list={[
+          'How the cargo should move, and in what stages',
+          'The transport for each stage of the journey',
+          'Pickups, handovers and delivery timings',
+          'One point of contact for updates throughout',
+        ]}
+        note="Tell us where the cargo starts, where it needs to go and what it is. We'll explain how we would arrange it, and price it, before anything is booked."
+        cta={{ href: quoteHref('forwarding'), label: 'Get a freight forwarding quote' }}
       />
 
       <section id="booking" className="bg-night pt-24 text-lamp lg:pt-40" aria-labelledby="booking-title">
         <div className="frame">
           <div data-reveal className="grid gap-6 pb-14 lg:grid-cols-12 lg:pb-20">
             <h2 id="booking-title" className="type-gantry type-h2 lg:col-span-7">
-              How booking works
+              How a truck load is booked
             </h2>
             <p className="type-lede text-lamp-2 lg:col-span-4 lg:col-start-9 lg:self-end">
               From your enquiry to our truck at your door, you deal with one office throughout.
@@ -90,41 +121,48 @@ export function ServicesPage() {
   )
 }
 
+// One service: its name as the heading with its promise under it, the
+// picture beside, then who it suits, a note on what to tell us, and the quote.
 function Service({
   id,
-  title,
+  name,
+  tagline,
   ground,
   flip,
-  photo,
+  media,
   intro,
-  suits,
+  listTitle,
+  list,
   note,
   cta,
 }: {
   id: string
-  title: string
+  name: string
+  tagline: string
   ground: string
   flip?: boolean
-  photo: ReactNode
+  media: ReactNode
   intro: string
-  suits: string[]
+  listTitle: string
+  list: string[]
   note: string
   cta: { href: string; label: string }
 }) {
   return (
     <section id={id} className={`${ground} py-24 lg:py-36`} aria-labelledby={`${id}-title`}>
       <div className="frame grid items-center gap-12 lg:grid-cols-12 lg:gap-8">
-        <div data-reveal className={`lg:col-span-6 ${flip ? 'lg:order-2 lg:col-start-7' : ''}`}>
-          {photo}
+        <div data-reveal className={`lg:col-span-5 ${flip ? 'lg:order-2 lg:col-start-8' : ''}`}>
+          {media}
         </div>
-        <div data-reveal className={`lg:col-span-5 ${flip ? 'lg:order-1 lg:col-start-1' : 'lg:col-start-8'}`}>
+        <div data-reveal className={`lg:col-span-6 ${flip ? 'lg:order-1 lg:col-start-1' : 'lg:col-start-7'}`}>
           <h2 id={`${id}-title`} className="type-gantry type-h2">
-            {title}
+            {name}
           </h2>
+          <p className="mt-4 text-[clamp(1.25rem,1.05rem+0.9vw,1.75rem)] leading-tight font-bold text-ink-2 [font-stretch:112%]">{tagline}</p>
           <p className="type-lede mt-6 text-ink-2">{intro}</p>
-          <h3 className="mt-10 font-bold [font-stretch:112%]">Suited to</h3>
+          <h3 className="mt-10 font-bold [font-stretch:112%]">{listTitle}</h3>
           <ul className="mt-3 grid gap-2">
-            {suits.map((s) => (
+            {list.map((s) => (
               <li key={s} className="flex gap-3 text-ink-2">
                 <ArrowRight className="mt-[0.35rem] size-4 shrink-0 text-ink" aria-hidden="true" />
                 {s}
@@ -144,34 +182,36 @@ function Service({
 
 // Mirrors the quote form, so senders can gather the details before they start.
 function Checklist() {
-  const items = [
-    { k: 'Pickup point', v: 'Area and city, e.g. Taloja MIDC, Navi Mumbai' },
-    { k: 'Delivery point', v: 'Where the goods are going' },
-    { k: 'Type of goods', v: 'Cartons, machinery, raw material in bags or drums, furniture, or something else' },
-    { k: 'Weight or quantity', v: 'A rough figure is enough: 2 tonnes, or 40 cartons' },
-    { k: 'Pickup date', v: 'If you have one in mind' },
+  const groups = [
+    { service: 'Full truck load', items: ['Pickup and delivery locations', 'What the goods are', 'Approximate weight', 'Preferred transport date, if you have one'] },
+    { service: 'Warehousing', items: ['Type of goods', 'Roughly how much, or the space you need', 'How long you expect to store them', 'Where they need to be stored, if it matters'] },
+    { service: 'Freight forwarding', items: ['Origin and destination', 'What the cargo is', 'Approximate shipment quantity', 'Preferred movement date, if you have one'] },
   ]
   return (
     <section className="flow-on bg-paper py-24 lg:py-40" aria-labelledby="ready-title">
       <div className="frame grid gap-14 lg:grid-cols-12 lg:gap-8">
-        <div data-reveal className="lg:col-span-6">
+        <div data-reveal className="lg:col-span-7">
           <h2 id="ready-title" className="type-gantry type-h2 max-w-[13ch]">
             What we need to quote
           </h2>
-          <dl className="mt-10 grid gap-6">
-            {items.map((i) => (
-              <div key={i.k} className="grid gap-1 sm:grid-cols-[11rem_1fr] sm:gap-6">
-                <dt className="font-bold [font-stretch:110%]">{i.k}</dt>
-                <dd className="text-ink-2">{i.v}</dd>
+          <div className="mt-10 grid gap-10 sm:grid-cols-3 sm:gap-8">
+            {groups.map((g) => (
+              <div key={g.service}>
+                <h3 className="font-bold [font-stretch:112%]">{g.service}</h3>
+                <ul className="mt-3 grid gap-2 text-ink-2">
+                  {g.items.map((i) => (
+                    <li key={i}>{i}</li>
+                  ))}
+                </ul>
               </div>
             ))}
-          </dl>
+          </div>
           <p className="mt-12 max-w-[50ch] text-ink-2">
-            <strong className="font-bold text-ink">Something else to move?</strong> If your goods need packing, storage or a particular kind of vehicle,
-            ask when you enquire. We'll tell you straight whether it's something we can handle.
+            <strong className="font-bold text-ink">Not sure which you need?</strong> Tell us about the goods and where they need to be, and we'll suggest
+            the right service.
           </p>
         </div>
-        <div data-reveal className="lg:col-span-5 lg:col-start-8 lg:self-start">
+        <div data-reveal className="lg:col-span-4 lg:col-start-9 lg:self-start">
           <QuoteStarter id="services-quote" />
         </div>
       </div>

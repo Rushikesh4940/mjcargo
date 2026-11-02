@@ -94,8 +94,8 @@ const photo = await sharp(path.join(root, 'assets-src/own-trucks.jpg'))
   .toBuffer()
 const lockup = await matted().extract(FULL).resize({ width: 560 }).png().toBuffer()
 const caption = Buffer.from(`<svg width="640" height="120" xmlns="http://www.w3.org/2000/svg">
-  <text x="40" y="44" font-family="Helvetica Neue, Arial, sans-serif" font-size="30" font-weight="700" fill="#14284a">Road freight from New Panvel,</text>
-  <text x="40" y="84" font-family="Helvetica Neue, Arial, sans-serif" font-size="30" font-weight="700" fill="#14284a">Navi Mumbai</text>
+  <text x="40" y="44" font-family="Helvetica Neue, Arial, sans-serif" font-size="30" font-weight="700" fill="#14284a">Full truck load · Warehousing</text>
+  <text x="40" y="84" font-family="Helvetica Neue, Arial, sans-serif" font-size="30" font-weight="700" fill="#14284a">Freight forwarding · New Panvel</text>
 </svg>`)
 await sharp({ create: { width: 1200, height: 630, channels: 3, background: '#ffffff' } })
   .composite([

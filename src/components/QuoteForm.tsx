@@ -1,12 +1,20 @@
 import { cloneElement, isValidElement, useEffect, useId, useRef, useState, type FormEvent, type ReactElement, type ReactNode } from 'react'
 import { AlertCircle, ArrowRight, Check, Copy, LoaderCircle, MessageCircle } from 'lucide-react'
 import { whatsappHref, whatsappNumber, fullAddressLines } from '../config/business'
-import { cargoTypes, emptyQuote, loadTypes, quoteEndpoint, quoteSummary, submitQuote, validateQuote, type QuoteErrors, type QuoteFields } from '../lib/quote'
+import { services, serviceById, type ServiceId } from '../data/services'
+import {
+  emptyQuote,
+  fieldOrder,
+  quoteEndpoint,
+  quoteSummary,
+  storageDurations,
+  submitQuote,
+  validateQuote,
+  type QuoteErrors,
+  type QuoteFields,
+} from '../lib/quote'
 
 type Status = 'idle' | 'sending' | 'sent' | 'error' | 'offline'
-
-// Visual order, so a failed submit focuses the first problem on screen.
-const order: (keyof QuoteFields)[] = ['pickup', 'delivery', 'cargoType', 'date', 'name', 'phone', 'email']
 
 export function QuoteForm() {
   const uid = useId()
@@ -19,15 +27,18 @@ export function QuoteForm() {
   const statusRef = useRef<HTMLDivElement>(null)
   const formRef = useRef<HTMLFormElement>(null)
 
-  // Prefill from the quote starter (?from=&to=) or a service link (?load=).
+  // Prefill from a service link (?service=) or the quote starter (?from=&to=,
+  // which is the full truck load journey).
   useEffect(() => {
     const p = new URLSearchParams(location.search)
-    const load = p.get('load') ?? ''
+    const from = p.get('from')?.slice(0, 120)
+    const to = p.get('to')?.slice(0, 120)
+    const asked = serviceById(p.get('service') ?? '')?.id
     setValues((v) => ({
       ...v,
-      pickup: p.get('from')?.slice(0, 120) ?? v.pickup,
-      delivery: p.get('to')?.slice(0, 120) ?? v.delivery,
-      load: loadTypes.includes(load) ? load : v.load,
+      service: asked ?? (from || to ? 'ftl' : v.service),
+      pickup: from ?? v.pickup,
+      delivery: to ?? v.delivery,
     }))
     setMinDate(new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10))
   }, [])
@@ -42,12 +53,25 @@ export function QuoteForm() {
     setTouched((t) => ({ ...t, [key]: true }))
     setErrors((prev) => ({ ...prev, [key]: validateQuote(values)[key] }))
   }
+  const choose = (id: ServiceId) => {
+    setValues((v) => ({ ...v, service: id }))
+    // A new service asks new questions: show its errors only once they are earned.
+    setTouched({})
+    setErrors({})
+    if (status === 'error' || status === 'offline') setStatus('idle')
+  }
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     if (status === 'sending') return
     const found = validateQuote(values)
     setErrors(found)
+    if (!values.service) {
+      setTouched({ service: true })
+      formRef.current?.querySelector<HTMLElement>('[name="service"]')?.focus()
+      return
+    }
+    const order = fieldOrder[values.service]
     setTouched(Object.fromEntries(order.map((k) => [k, true])))
     const firstBad = order.find((k) => found[k])
     if (firstBad) {
@@ -82,6 +106,10 @@ export function QuoteForm() {
   }
 
   if (status === 'sent') {
+    const what =
+      values.service === 'warehousing'
+        ? `storing ${values.goods.trim()}`
+        : `${values.service === 'forwarding' ? 'forwarding cargo from' : 'a full truck from'} ${values.pickup.trim()} to ${values.delivery.trim()}`
     return (
       <div ref={statusRef} tabIndex={-1} role="status" className="sign outline-none">
         <span className="flex size-12 items-center justify-center rounded-full bg-lamp text-night" aria-hidden="true">
@@ -89,7 +117,7 @@ export function QuoteForm() {
         </span>
         <h2 className="type-gantry mt-6 text-[clamp(1.75rem,1.3rem+1.8vw,2.5rem)]">Request received</h2>
         <p className="mt-4 max-w-[46ch] text-lamp-2">
-          Thanks, {values.name.trim().split(' ')[0]}. We have your request for {values.pickup.trim()} to {values.delivery.trim()} and will call you on{' '}
+          Thanks, {values.name.trim().split(' ')[0]}. We have your request for {what} and will call you on{' '}
           <span className="font-semibold text-lamp tabular-nums">{values.phone.trim()}</span> to go over the details and your quotation.
         </p>
         <button
@@ -109,7 +137,10 @@ export function QuoteForm() {
   }
 
   const err = (k: keyof QuoteFields) => (touched[k] ? errors[k] : undefined)
-  const summaryReady = values.pickup.trim() || values.delivery.trim() || values.cargoType
+  const service = values.service
+  const input = (key: keyof QuoteFields, props: Record<string, unknown> = {}) => (
+    <input name={key} id={`${uid}-${key}`} className="field" value={values[key]} onChange={set(key)} onBlur={blur(key)} autoComplete="off" {...props} />
+  )
 
   return (
     <form ref={formRef} noValidate onSubmit={onSubmit} className="grid gap-10" aria-describedby={`${uid}-req`}>
@@ -117,60 +148,117 @@ export function QuoteForm() {
         Fields marked <span className="font-bold text-ink">required</span> are all we need to prepare a quote.
       </p>
 
-      <fieldset className="grid gap-5">
-        <legend className="type-h3 mb-5">The load</legend>
-        <div className="grid gap-5 sm:grid-cols-2">
-          <Field uid={uid} id="pickup" label="Pickup location" required error={err('pickup')}>
-            <input name="pickup" id={`${uid}-pickup`} className="field" value={values.pickup} onChange={set('pickup')} onBlur={blur('pickup')} placeholder="Area and city, e.g. Taloja MIDC" autoComplete="off" />
-          </Field>
-          <Field uid={uid} id="delivery" label="Delivery location" required error={err('delivery')}>
-            <input name="delivery" id={`${uid}-delivery`} className="field" value={values.delivery} onChange={set('delivery')} onBlur={blur('delivery')} placeholder="Area and city, e.g. Chakan, Pune" autoComplete="off" />
-          </Field>
-          <Field uid={uid} id="cargoType" label="Type of goods" required error={err('cargoType')}>
-            <select name="cargoType" id={`${uid}-cargoType`} className="field" value={values.cargoType} onChange={set('cargoType')} onBlur={blur('cargoType')}>
-              <option value="">Choose one</option>
-              {cargoTypes.map((t) => (
-                <option key={t}>{t}</option>
-              ))}
-            </select>
-          </Field>
-          <Field uid={uid} id="load" label="Full truck or part load?">
-            <select name="load" id={`${uid}-load`} className="field" value={values.load} onChange={set('load')}>
-              <option value="">Choose one</option>
-              {loadTypes.map((t) => (
-                <option key={t}>{t}</option>
-              ))}
-            </select>
-          </Field>
-          <Field uid={uid} id="weight" label="Approximate weight or quantity" hint="e.g. 2 tonnes, or 40 cartons">
-            <input name="weight" id={`${uid}-weight`} className="field" value={values.weight} onChange={set('weight')} autoComplete="off" />
-          </Field>
-          <Field uid={uid} id="date" label="Preferred pickup date" error={err('date')}>
-            <input type="date" name="date" id={`${uid}-date`} min={minDate} className="field" value={values.date} onChange={set('date')} onBlur={blur('date')} />
-          </Field>
+      <fieldset className="grid gap-4" aria-describedby={err('service') ? `${uid}-service-error` : undefined}>
+        <legend className="type-h3 mb-4">What do you need a quote for?</legend>
+        <div className="grid gap-3 sm:grid-cols-3">
+          {services.map((s) => (
+            <label key={s.id} className="service-option">
+              <input type="radio" name="service" value={s.id} checked={service === s.id} onChange={() => choose(s.id)} className="sr-only" />
+              <span className="service-card">
+                <span className="service-tick" aria-hidden="true">
+                  <Check className="size-3.5" strokeWidth={3.5} />
+                </span>
+                <span className="block font-bold [font-stretch:110%]">{s.short}</span>
+                <span className="service-line mt-1 block text-[0.9375rem] leading-snug">{s.line}</span>
+              </span>
+            </label>
+          ))}
         </div>
-        <Field uid={uid} id="details" label="Anything else we should know?" hint="Loading help, fragile items, delivery timing, dimensions">
-          <textarea name="details" id={`${uid}-details`} className="field" rows={4} value={values.details} onChange={set('details')} />
-        </Field>
+        {err('service') && (
+          <p id={`${uid}-service-error`} className="field-error">
+            <AlertCircle className="mt-[0.2rem] size-4 shrink-0" aria-hidden="true" />
+            {err('service')}
+          </p>
+        )}
       </fieldset>
 
-      <fieldset className="grid gap-5">
-        <legend className="type-h3 mb-5">Your details</legend>
-        <div className="grid gap-5 sm:grid-cols-2">
-          <Field uid={uid} id="name" label="Full name" required error={err('name')}>
-            <input name="name" id={`${uid}-name`} className="field" value={values.name} onChange={set('name')} onBlur={blur('name')} autoComplete="name" />
-          </Field>
-          <Field uid={uid} id="company" label="Company name">
-            <input name="company" id={`${uid}-company`} className="field" value={values.company} onChange={set('company')} autoComplete="organization" />
-          </Field>
-          <Field uid={uid} id="phone" label="Phone number" required error={err('phone')} hint="We'll call you back on this number">
-            <input type="tel" inputMode="tel" name="phone" id={`${uid}-phone`} className="field tabular-nums" value={values.phone} onChange={set('phone')} onBlur={blur('phone')} autoComplete="tel" placeholder="98765 43210" />
-          </Field>
-          <Field uid={uid} id="email" label="Email" error={err('email')}>
-            <input type="email" inputMode="email" name="email" id={`${uid}-email`} className="field" value={values.email} onChange={set('email')} onBlur={blur('email')} autoComplete="email" />
-          </Field>
+      {service && (
+        <div key={service} className="quote-swap grid gap-10">
+          <fieldset className="grid gap-5">
+            <legend className="type-h3 mb-5">{service === 'warehousing' ? 'What needs storing' : service === 'forwarding' ? 'The shipment' : 'The load'}</legend>
+
+            {service === 'warehousing' ? (
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Field uid={uid} id="goods" label="Type of goods" required error={err('goods')}>
+                  {input('goods', { placeholder: 'e.g. packaged goods on pallets' })}
+                </Field>
+                <Field uid={uid} id="quantity" label="Approximate quantity or space needed" required error={err('quantity')} hint="e.g. 40 pallets, 500 cartons, or a rough area">
+                  {input('quantity')}
+                </Field>
+                <Field uid={uid} id="duration" label="Expected storage period">
+                  <select name="duration" id={`${uid}-duration`} className="field" value={values.duration} onChange={set('duration')}>
+                    <option value="">Choose one</option>
+                    {storageDurations.map((d) => (
+                      <option key={d}>{d}</option>
+                    ))}
+                  </select>
+                </Field>
+                <Field uid={uid} id="location" label="Required storage location" hint="If the goods need to be stored in a particular area">
+                  {input('location', { placeholder: 'e.g. near Taloja MIDC' })}
+                </Field>
+              </div>
+            ) : (
+              <div className="grid gap-5 sm:grid-cols-2">
+                <Field uid={uid} id="pickup" label={service === 'forwarding' ? 'Origin' : 'Pickup location'} required error={err('pickup')}>
+                  {input('pickup', { placeholder: 'Area and city, e.g. Taloja MIDC' })}
+                </Field>
+                <Field uid={uid} id="delivery" label={service === 'forwarding' ? 'Destination' : 'Delivery location'} required error={err('delivery')}>
+                  {input('delivery', { placeholder: 'Area and city, e.g. Chakan, Pune' })}
+                </Field>
+                <Field uid={uid} id="goods" label={service === 'forwarding' ? 'Cargo description' : 'Goods description'} required error={err('goods')}>
+                  {input('goods', { placeholder: service === 'forwarding' ? 'e.g. machine parts in crates' : 'e.g. steel coils, cartons of FMCG goods' })}
+                </Field>
+                <Field
+                  uid={uid}
+                  id="quantity"
+                  label={service === 'forwarding' ? 'Approximate shipment quantity' : 'Approximate weight'}
+                  hint={service === 'forwarding' ? 'e.g. 18 tonnes, or 300 cartons' : 'e.g. 9 tonnes'}
+                >
+                  {input('quantity')}
+                </Field>
+                <Field uid={uid} id="date" label={service === 'forwarding' ? 'Preferred movement date' : 'Preferred transport date'} error={err('date')}>
+                  <input type="date" name="date" id={`${uid}-date`} min={minDate} className="field" value={values.date} onChange={set('date')} onBlur={blur('date')} />
+                </Field>
+              </div>
+            )}
+
+            <Field
+              uid={uid}
+              id="details"
+              label="Anything else we should know?"
+              hint={
+                service === 'warehousing'
+                  ? 'How the goods are packed, when they will arrive, how often they move in and out'
+                  : service === 'forwarding'
+                    ? 'Stages of the journey, handover points, timing, paperwork you already have'
+                    : 'Loading help, fragile items, delivery timing, dimensions'
+              }
+            >
+              <textarea name="details" id={`${uid}-details`} className="field" rows={4} value={values.details} onChange={set('details')} />
+            </Field>
+          </fieldset>
+
+          <fieldset className="grid gap-5">
+            <legend className="type-h3 mb-5">Your details</legend>
+            <div className="grid gap-5 sm:grid-cols-2">
+              <Field uid={uid} id="name" label="Full name" required error={err('name')}>
+                <input name="name" id={`${uid}-name`} className="field" value={values.name} onChange={set('name')} onBlur={blur('name')} autoComplete="name" />
+              </Field>
+              <Field uid={uid} id="company" label="Company name">
+                <input name="company" id={`${uid}-company`} className="field" value={values.company} onChange={set('company')} autoComplete="organization" />
+              </Field>
+              <Field uid={uid} id="phone" label="Phone number" required error={err('phone')} hint="We'll call you back on this number">
+                <input type="tel" inputMode="tel" name="phone" id={`${uid}-phone`} className="field tabular-nums" value={values.phone} onChange={set('phone')} onBlur={blur('phone')} autoComplete="tel" placeholder="98765 43210" />
+              </Field>
+              <Field uid={uid} id="email" label="Email" error={err('email')}>
+                <input type="email" inputMode="email" name="email" id={`${uid}-email`} className="field" value={values.email} onChange={set('email')} onBlur={blur('email')} autoComplete="email" />
+              </Field>
+            </div>
+          </fieldset>
+
+          <RequestSummary values={values} />
         </div>
-      </fieldset>
+      )}
 
       {/* Bot trap: hidden from people and assistive tech. */}
       <div className="absolute -left-[9999px]" aria-hidden="true">
@@ -179,18 +267,6 @@ export function QuoteForm() {
           <input name="website" tabIndex={-1} autoComplete="off" />
         </label>
       </div>
-
-      {summaryReady && (
-        <div className="rounded-2xl bg-night-2 px-5 py-4 text-lamp" aria-live="polite">
-          <p className="text-[0.9375rem] text-lamp-2">Your consignment</p>
-          <p className="mt-1 text-[1.125rem] leading-snug font-bold [font-stretch:110%]">
-            {values.pickup.trim() || 'Pickup'} <span className="text-paint">→</span> {values.delivery.trim() || 'Delivery'}
-            {values.cargoType && <span className="font-medium text-lamp-2"> · {values.cargoType.replace(' (describe below)', '')}</span>}
-            {values.load && <span className="font-medium text-lamp-2"> · {values.load}</span>}
-            {values.weight.trim() && <span className="font-medium text-lamp-2"> · {values.weight.trim()}</span>}
-          </p>
-        </div>
-      )}
 
       <div className="grid gap-5">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
@@ -207,7 +283,7 @@ export function QuoteForm() {
               </>
             )}
           </button>
-          {whatsappNumber && (
+          {whatsappNumber && service && (
             <a href={whatsappHref(whatsappNumber, quoteSummary(values))} target="_blank" rel="noopener" className="btn btn-ghost-day">
               <MessageCircle className="size-5" aria-hidden="true" />
               Send on WhatsApp instead
@@ -241,6 +317,41 @@ export function QuoteForm() {
         </div>
       </div>
     </form>
+  )
+}
+
+// The one request being described, held in a single line as the visitor types.
+function RequestSummary({ values: v }: { values: QuoteFields }) {
+  const extra = (s: string) => s && <span className="font-medium text-lamp-2"> · {s}</span>
+  let line: ReactNode
+  if (v.service === 'warehousing') {
+    if (!v.goods.trim() && !v.quantity.trim()) return null
+    line = (
+      <>
+        Storage<span className="font-medium text-lamp-2"> · {v.goods.trim() || 'Goods'}</span>
+        {extra(v.quantity.trim())}
+        {extra(v.duration)}
+        {extra(v.location.trim())}
+      </>
+    )
+  } else {
+    if (!v.pickup.trim() && !v.delivery.trim() && !v.goods.trim()) return null
+    const forwarding = v.service === 'forwarding'
+    line = (
+      <>
+        {v.pickup.trim() || (forwarding ? 'Origin' : 'Pickup')}{' '}
+        <ArrowRight className="inline size-[1.05em] -translate-y-px align-middle text-paint" aria-hidden="true" />
+        <span className="sr-only">to</span> {v.delivery.trim() || (forwarding ? 'Destination' : 'Delivery')}
+        {extra(v.goods.trim())}
+        {extra(v.quantity.trim())}
+      </>
+    )
+  }
+  return (
+    <div className="rounded-2xl bg-night-2 px-5 py-4 text-lamp" aria-live="polite">
+      <p className="text-[0.9375rem] text-lamp-2">Your request · {serviceById(v.service)?.name}</p>
+      <p className="mt-1 text-[1.125rem] leading-snug font-bold [font-stretch:110%]">{line}</p>
+    </div>
   )
 }
 

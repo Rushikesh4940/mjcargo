@@ -13,7 +13,7 @@ const stops = [
   },
   {
     title: 'We go over the details',
-    text: 'We check what we need to know to price it properly: full truck or part load, timing, and anything about loading or the goods themselves.',
+    text: 'We check what we need to know to price it properly: the size of truck, the timing, and anything about loading or the goods themselves.',
     ground: 'bg-dusk text-lamp',
     prev: 'var(--color-night)',
     sub: 'text-lamp-2',
@@ -27,7 +27,7 @@ const stops = [
   },
   {
     title: 'Confirm, and we schedule a truck',
-    text: 'Once you agree, we put one of our trucks on your load and agree the pickup with you.',
+    text: 'Once you agree, a truck of ours is booked for your load alone, and we agree the pickup with you.',
     ground: 'bg-dawn text-ink',
     prev: 'var(--color-predawn)',
     sub: 'text-ink-2',

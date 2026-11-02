@@ -1,4 +1,5 @@
 import { business, fullAddressLines, mapsUrl } from '../config/business'
+import { services } from '../data/services'
 import type { RouteMeta } from '../routes'
 
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -26,7 +27,7 @@ export function buildHead(route: RouteMeta, siteUrl: string | undefined): string
       `<meta property="og:image" content="${siteUrl}/og-image.jpg" />`,
       `<meta property="og:image:width" content="1200" />`,
       `<meta property="og:image:height" content="630" />`,
-      `<meta property="og:image:alt" content="${esc(`${business.name}, road freight from New Panvel, Navi Mumbai`)}" />`,
+      `<meta property="og:image:alt" content="${esc(`${business.name}: full truck load transport, warehousing and freight forwarding, New Panvel`)}" />`,
     )
   }
   if (route.id === 'home' || route.id === 'contact') {
@@ -44,7 +45,12 @@ export function localBusinessSchema(siteUrl: string | undefined) {
     '@type': 'LocalBusiness',
     name: business.name,
     alternateName: business.listedName,
-    description: 'Goods transport company in New Panvel, Navi Mumbai, moving full-truck and part-load road freight in its own trucks.',
+    description: 'Full truck load transport in our own trucks, warehousing and freight forwarding, from New Panvel, Navi Mumbai.',
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Services',
+      itemListElement: services.map((s) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name: s.name } })),
+    },
     address: {
       '@type': 'PostalAddress',
       streetAddress: `${a.unit}, ${a.building}, ${a.area}, ${a.landmark}, ${a.street}`,

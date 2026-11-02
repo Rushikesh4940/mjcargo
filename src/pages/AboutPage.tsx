@@ -13,7 +13,7 @@ export function AboutPage() {
         title="Our own trucks, from New Panvel"
         lede={
           <p>
-            {business.name} moves goods by road for businesses in its own trucks, from an office in Khanda Colony, New Panvel
+            {business.name} runs full truck load transport in its own trucks, with warehousing and freight forwarding, for businesses from an office in Khanda Colony, New Panvel
             {business.foundingYear ? `, and has done since ${business.foundingYear}` : ''}. You talk to the same people from the first enquiry to delivery.
           </p>
         }
@@ -41,6 +41,9 @@ function Role() {
             <p>
               You describe the consignment. We work out which of our trucks suits it and give you a price, and once you agree, we schedule the pickup
               with you.
+            </p>
+            <p>
+              When your goods need to wait, we offer warehousing; when a consignment needs its whole journey arranged, we handle the freight forwarding.
             </p>
             <p>For you, that means one local company to deal with, from the quote to the delivery.</p>
           </div>

@@ -1,5 +1,6 @@
 import { MapPin } from 'lucide-react'
 import { Logo } from './Wordmark'
+import { services } from '../data/services'
 import { business, fullAddressLines, mapsUrl, telHref, formatPhone, whatsappHref, whatsappNumber } from '../config/business'
 
 export function Footer() {
@@ -67,9 +68,13 @@ export function Footer() {
           <div className="lg:col-span-4">
             <h2 className="text-lg font-bold [font-stretch:112%]">Services</h2>
             <ul className="mt-3 space-y-2 text-lamp-2">
-              <li><a className="hover:text-lamp hover:underline" href="/services/#full-truck">Full truckload freight</a></li>
-              <li><a className="hover:text-lamp hover:underline" href="/services/#part-load">Part-load freight</a></li>
-              <li><a className="hover:text-lamp hover:underline" href="/services/#booking">How a load gets moved</a></li>
+              {services.map((s) => (
+                <li key={s.id}>
+                  <a className="hover:text-lamp hover:underline" href={`/services/#${s.anchor}`}>
+                    {s.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

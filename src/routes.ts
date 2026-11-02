@@ -12,33 +12,33 @@ export const routes: RouteMeta[] = [
   {
     id: 'home',
     path: '/',
-    title: 'M J Cargo Movers | Road freight in our own trucks, New Panvel',
+    title: 'M J Cargo Movers | Full Truck Load, Warehousing & Freight Forwarding',
     description:
-      'M J Cargo Movers moves goods by road from New Panvel, Navi Mumbai, in its own trucks: full-truck and part-load freight for businesses. Tell us where your goods are going and get a quote.',
+      'Dedicated full truck load transport in our own trucks, warehousing and freight forwarding from New Panvel, Navi Mumbai. Tell us what you need and get a quote.',
     inSitemap: true,
   },
   {
     id: 'services',
     path: '/services/',
-    title: 'Full-truck & part-load road freight from Panvel | M J Cargo Movers',
+    title: 'Full Truck Load Transport, Warehousing & Freight Forwarding in Panvel | M J Cargo Movers',
     description:
-      'Full truckload and part-load road freight in our own trucks, run from New Panvel. See what we handle and request a quote for your load.',
+      'Dedicated truck transportation for your whole load, warehousing services for your goods, and freight forwarding, from New Panvel, Navi Mumbai. See each service and request a quote.',
     inSitemap: true,
   },
   {
     id: 'about',
     path: '/about/',
-    title: 'About M J Cargo Movers | Goods transport, Khanda Colony, New Panvel',
+    title: 'About M J Cargo Movers | Own trucks, warehousing & forwarding, New Panvel',
     description:
-      'A road freight company with its own trucks and an office in Shree Ganesh Plaza, Khanda Colony, New Panvel. How we work with businesses that need goods moved by road.',
+      'A New Panvel company with its own trucks, offering full truck load transport, warehousing and freight forwarding from an office in Shree Ganesh Plaza, Khanda Colony.',
     inSitemap: true,
   },
   {
     id: 'contact',
     path: '/contact/',
-    title: 'Request a cargo quote | M J Cargo Movers, New Panvel',
+    title: 'Request a quote: full truck load, warehousing, freight forwarding | M J Cargo Movers',
     description:
-      'Send your pickup point, delivery point and cargo details for a road freight quote, or visit our office behind Netrajyot Hospital, New Panvel.',
+      'Choose full truck load transport, warehousing or freight forwarding, add a few details and get a quotation. Or visit our office behind Netrajyot Hospital, New Panvel.',
     inSitemap: true,
   },
   {

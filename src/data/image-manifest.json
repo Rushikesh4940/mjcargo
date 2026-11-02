@@ -9,6 +9,16 @@
       1920
     ]
   },
+  "freight-forwarding": {
+    "width": 1920,
+    "height": 1323,
+    "widths": [
+      640,
+      960,
+      1440,
+      1920
+    ]
+  },
   "own-trucks": {
     "width": 720,
     "height": 1280,
@@ -17,24 +27,13 @@
       720
     ]
   },
-  "road-truck": {
-    "width": 2400,
-    "height": 1600,
+  "warehouse": {
+    "width": 1280,
+    "height": 734,
     "widths": [
       640,
       960,
-      1440,
-      1920
-    ]
-  },
-  "truck-front": {
-    "width": 2048,
-    "height": 1536,
-    "widths": [
-      640,
-      960,
-      1440,
-      1920
+      1280
     ]
   }
 }

@@ -334,6 +334,86 @@
     min-height: 8rem;
     resize: vertical;
   }
+  /* Quote form service picker: native radios, drawn as cards. The chosen one
+     inverts to night (the system's selected state); press gives way a little. */
+  .service-option {
+    display: block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .service-card {
+    position: relative;
+    display: block;
+    height: 100%;
+    padding: 1rem 3rem 1.1rem 1.1rem;
+    border-radius: 1rem;
+    background: var(--color-paper);
+    color: var(--color-ink);
+    box-shadow: inset 0 0 0 2px #8794a6;
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      box-shadow 160ms ease,
+      transform 160ms var(--ease-out);
+  }
+  .service-line {
+    color: var(--color-ink-2);
+    transition: color 160ms ease;
+  }
+  .service-tick {
+    position: absolute;
+    top: 0.95rem;
+    right: 0.95rem;
+    display: flex;
+    width: 1.375rem;
+    height: 1.375rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    color: transparent;
+    box-shadow: inset 0 0 0 2px #8794a6;
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      box-shadow 160ms ease;
+  }
+  .service-option:active .service-card {
+    transform: scale(0.98);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .service-option:hover .service-card {
+      box-shadow: inset 0 0 0 2px var(--color-ink-2);
+    }
+  }
+  .service-option input:checked + .service-card {
+    background: var(--color-night);
+    color: var(--color-lamp);
+    box-shadow: inset 0 0 0 2px var(--color-night);
+  }
+  .service-option input:checked + .service-card .service-line {
+    color: var(--color-lamp-2);
+  }
+  .service-option input:checked + .service-card .service-tick {
+    background: var(--color-lamp);
+    color: var(--color-night);
+    box-shadow: none;
+  }
+  .service-option input:focus-visible + .service-card {
+    outline: 3px solid var(--color-paint);
+    outline-offset: 3px;
+  }
+
+  /* The chosen service's questions arrive with a short settle. */
+  .quote-swap {
+    animation: quote-swap 220ms var(--ease-out) both;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .quote-swap {
+      animation: quote-fade 150ms ease both;
+    }
+  }
+
   /* Long-form reading pages (privacy, credits). */
   .prose-road {
     max-width: 68ch;
@@ -740,5 +820,17 @@ main + footer {
   }
   .reveal-ready [data-reveal].is-in > *:nth-child(n + 5) {
     transition-delay: 280ms;
+  }
+}
+
+@keyframes quote-swap {
+  from {
+    opacity: 0;
+    translate: 0 6px;
+  }
+}
+@keyframes quote-fade {
+  from {
+    opacity: 0;
   }
 }

@@ -1,11 +1,13 @@
 import { ArrowRight } from 'lucide-react'
 
-// The road sign that asks where the cargo is going. A plain GET form to the
-// contact page, which picks up `from` and `to` and fills the full request.
-// The #quote fragment survives the GET, so the visitor lands on the form.
+// The road sign that asks where the cargo is going: the start of a full truck
+// load quote. A plain GET form to the contact page, which picks up `service`,
+// `from` and `to` and fills the full request. The #quote fragment survives
+// the GET, so the visitor lands on the form.
 export function QuoteStarter({ id, heading = 'Where is your cargo going?' }: { id: string; heading?: string }) {
   return (
     <form action="/contact/#quote" method="get" className="sign" aria-labelledby={`${id}-title`}>
+      <input type="hidden" name="service" value="ftl" />
       <h2 id={`${id}-title`} className="text-[1.375rem] leading-tight font-extrabold tracking-[-0.015em] [font-stretch:118%] sm:text-[1.625rem]">
         {heading}
       </h2>

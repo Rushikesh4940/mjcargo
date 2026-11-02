@@ -4,7 +4,7 @@ import { PageHeader } from '../components/PageHeader'
 import { Photo } from '../components/Photo'
 import { photoAlts, photoCredits, type CreditedPhoto } from '../data/photo-credits'
 
-const order: CreditedPhoto[] = ['truck-front', 'road-truck', 'expressway']
+const order: CreditedPhoto[] = ['warehouse', 'freight-forwarding', 'expressway']
 
 export function CreditsPage() {
   return (
@@ -13,8 +13,8 @@ export function CreditsPage() {
         title="Image credits"
         lede={
           <p>
-            The photograph of our two trucks is our own. The other photographs on this site were taken by the photographers below, not by{' '}
-            {business.name}, and they don't show our vehicles.
+            The photograph of our two trucks is our own, and the hero truck illustration was drawn for this site. The other photographs, below,
+            were taken by their photographers, not by {business.name}, and don't show our own trucks or premises.
           </p>
         }
       />

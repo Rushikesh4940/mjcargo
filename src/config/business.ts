@@ -7,7 +7,7 @@ export const business = {
   // How the business appears on its Justdial listing.
   listedName: 'M J Cargo',
   // Road freight in the company's own trucks (confirmed by the owner, 2026-10-29).
-  category: 'Goods transport',
+  category: 'Full truck load transport, warehousing and freight forwarding',
 
   address: {
     unit: 'Plot No 1, Shop No 29',
