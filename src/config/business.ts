@@ -23,10 +23,11 @@ export const business = {
   },
 
   // E.164 format, e.g. '+919876543210'. Call buttons appear only once this is set.
-  phone: null as string | null,
+  // Phone and email from the owner, 2026-11-03.
+  phone: '+917738388448' as string | null,
   // Leave null to use the phone number for WhatsApp.
   whatsapp: null as string | null,
-  email: null as string | null,
+  email: 'mjcargomovers.eknath@gmail.com' as string | null,
   // e.g. 'Mon–Sat, 9:30 am – 9:00 pm'. Not shown until confirmed.
   hours: null as string | null,
   // Started 1 June 2010 (owner, 2026-11-02).

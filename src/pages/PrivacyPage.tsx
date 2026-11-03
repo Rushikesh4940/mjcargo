@@ -1,4 +1,4 @@
-import { business, fullAddressLines, whatsappNumber } from '../config/business'
+import { business, formatPhone, fullAddressLines, whatsappNumber } from '../config/business'
 import { quoteEndpoint } from '../lib/quote'
 import { PageHeader } from '../components/PageHeader'
 
@@ -61,7 +61,7 @@ export function PrivacyPage() {
               <li>
                 {business.name}, {fullAddressLines.join(', ')}
               </li>
-              {business.phone && <li>Phone: {business.phone}</li>}
+              {business.phone && <li>Phone: {formatPhone(business.phone)}</li>}
               {business.email && <li>Email: {business.email}</li>}
             </ul>
           </div>

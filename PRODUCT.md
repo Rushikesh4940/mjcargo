@@ -33,14 +33,15 @@ Confirmed:
 - Business name to use: **M J Cargo Movers** (Justdial lists it as "M J Cargo").
 - Runs its own trucks; it is not a cargo agent (owner, 2026-10-29). Justdial still lists the category as "cargo agent"; the site must not repeat that.
 - Confirmed by the owner, 2026-11-02: **40 trucks** of its own, all with GPS (no customer-facing tracking page: updates come by phone); started **1 June 2010**; warehouse capacity **20,000 sq ft** (location not confirmed); loads run mostly **from Nhava Sheva to destinations all over India** (road transport only: no customs or port-service claims); GSTIN **27AKVPK4057A1Z2**.
+- Confirmed by the owner, 2026-11-03: phone **+91 77383 88448** (also used for WhatsApp until a separate number is given; not yet confirmed to be on WhatsApp); email **mjcargomovers.eknath@gmail.com**.
 - Truck types and drivers are not yet confirmed.
 - Three services (owner, 2026-10-30): **Full Truck Load (FTL) transport** — the customer books the whole truck; **Warehousing** — storage for customers' goods; **Freight forwarding** — arranging and coordinating the movement of cargo. Final positioning: "M J Cargo Movers — Full Truck Load Transportation | Warehousing | Freight Forwarding".
 - The company does NOT offer part load, LTL, shared-truck shipping, parcel delivery or small-consignment shipping. Never advertise or picture these.
 - Address: Plot No 1, Shop No 29, Sector No 1, Shree Ganesh Plaza 1, Khanda Colony, Behind Netrajyot Hospital, New Panvel Road, New Panvel, Navi Mumbai 410206 (Justdial, via search index).
 
 Undecided / unknown — do not publish until confirmed:
-- Phone and WhatsApp number (WhatsApp = same as phone once provided).
-- Email, opening hours (listing hints "until 9 pm").
+- Whether +91 77383 88448 is on WhatsApp.
+- Opening hours (listing hints "until 9 pm").
 - Specific destinations beyond "all over India", vehicle types, insurance, packing, household shifting.
 - Warehousing details beyond the 20,000 sq ft capacity: location, security, temperature control, handling. Do not invent.
 - Freight forwarding scope: no international shipping, customs clearance, air or ocean freight, import/export or port services unless confirmed.
