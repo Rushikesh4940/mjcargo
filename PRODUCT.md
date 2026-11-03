@@ -25,25 +25,27 @@ A local road freight company in New Panvel with its own trucks — not an agent 
 ## Operating Context
 
 - Customers describe a consignment by pickup point, delivery point, type of goods and approximate weight/quantity, then receive a quotation.
-- Coordination happens by phone/in person; there is **no tracking system** and the site must not imply one.
+- Coordination happens by phone/in person. The trucks carry GPS, so the office can tell a caller where their goods are, but there is **no customer tracking page** and the site must not imply one.
 
 ## Capabilities and Constraints
 
 Confirmed:
 - Business name to use: **M J Cargo Movers** (Justdial lists it as "M J Cargo").
 - Runs its own trucks; it is not a cargo agent (owner, 2026-10-29). Justdial still lists the category as "cargo agent"; the site must not repeat that.
-- Fleet size, truck types and drivers are not yet confirmed: say "our own trucks" and nothing more specific.
+- Confirmed by the owner, 2026-11-02: **40 trucks** of its own, all with GPS (no customer-facing tracking page: updates come by phone); started **1 June 2010**; warehouse capacity **20,000 sq ft** (location not confirmed); loads run mostly **from Nhava Sheva to destinations all over India** (road transport only: no customs or port-service claims); GSTIN **27AKVPK4057A1Z2**.
+- Truck types and drivers are not yet confirmed.
 - Three services (owner, 2026-10-30): **Full Truck Load (FTL) transport** — the customer books the whole truck; **Warehousing** — storage for customers' goods; **Freight forwarding** — arranging and coordinating the movement of cargo. Final positioning: "M J Cargo Movers — Full Truck Load Transportation | Warehousing | Freight Forwarding".
 - The company does NOT offer part load, LTL, shared-truck shipping, parcel delivery or small-consignment shipping. Never advertise or picture these.
 - Address: Plot No 1, Shop No 29, Sector No 1, Shree Ganesh Plaza 1, Khanda Colony, Behind Netrajyot Hospital, New Panvel Road, New Panvel, Navi Mumbai 410206 (Justdial, via search index).
 
 Undecided / unknown — do not publish until confirmed:
 - Phone and WhatsApp number (WhatsApp = same as phone once provided).
-- Email, opening hours (listing hints "until 9 pm"), year established (one source says 2005).
-- Routes, destinations, fleet size, vehicle types, insurance, packing, household shifting.
-- Warehousing details: capacity, area, location, security, temperature control, handling. Do not invent; describe the service plainly.
+- Email, opening hours (listing hints "until 9 pm").
+- Specific destinations beyond "all over India", vehicle types, insurance, packing, household shifting.
+- Warehousing details beyond the 20,000 sq ft capacity: location, security, temperature control, handling. Do not invent.
 - Freight forwarding scope: no international shipping, customs clearance, air or ocean freight, import/export or port services unless confirmed.
 - Production domain.
+- About page "Our strengths", "Our purpose", "Our vision" and "Our values" (added at the owner's request, 2026-11-02, after the layout of sahyadhrilogistics.net): drafted from confirmed facts only, awaiting the owner's approval of the wording. Do not add fleet counts, GPS, container or ISO-tank claims from that reference site.
 
 ## Brand Commitments
 

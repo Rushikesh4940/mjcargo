@@ -37,8 +37,8 @@ function Hero() {
           id="hero-title"
           className="type-gantry text-[clamp(1.75rem,calc((100vw_-_2.25rem)/11.6),3.75rem)] [font-stretch:112%] lg:col-span-8 lg:row-start-1 lg:text-[clamp(2.75rem,4.3vw,4.25rem)] lg:[font-stretch:125%]"
         >
-          <span className="block whitespace-nowrap">Full truck loads,</span>
-          <span className="block whitespace-nowrap">warehousing and</span>
+          <span className="block whitespace-nowrap">Full truck loads,</span>{' '}
+          <span className="block whitespace-nowrap">warehousing and</span>{' '}
           <span className="block whitespace-nowrap">freight forwarding.</span>
         </h1>
         <p className="type-lede max-w-[40ch] text-lamp-2 lg:col-span-4 lg:col-start-9 lg:row-start-1 lg:self-end">
@@ -83,7 +83,7 @@ function Services() {
           <div className="lg:col-span-6 lg:col-start-7">
             <h3 className="type-gantry text-[clamp(1.75rem,1.3rem+1.9vw,2.75rem)]">Full truck load transport</h3>
             <p className="type-lede mt-5 max-w-[42ch] text-ink-2">
-              Book the whole truck. Your goods are the only goods on board, loaded at your pickup point and driven straight to the delivery point.
+              Book a whole truck from our fleet of 40. Your goods are the only goods on board, mostly from Nhava Sheva to destinations all over India.
             </p>
             <ul className="mt-8 grid gap-2">
               {['Bulk stock and large orders', 'Goods that shouldn’t share space with anyone else’s', 'Consignments that need to go straight from pickup to delivery'].map(
@@ -119,7 +119,7 @@ function Services() {
             />
             <h3 className="type-h3 mt-6">Warehousing</h3>
             <p className="mt-3 max-w-[48ch] flex-1 text-ink-2">
-              Storage for your goods when they need to wait: between consignments, ahead of a delivery, or while you free up space of your own.
+              20,000 sq ft of storage for your goods when they need to wait: between consignments, ahead of a delivery, or while you free up space of your own.
             </p>
             <a href={quoteHref('warehousing')} className="link-go mt-5 self-start text-ink">
               Ask about storage
@@ -176,7 +176,7 @@ function WhyUs() {
     },
     {
       t: 'A whole truck, our own',
-      d: 'Every load we carry gets a truck of ours to itself, and you deal with the same local office from the first enquiry to delivery.',
+      d: 'Every load we carry gets one of our 40 trucks to itself, with GPS on board, and you deal with the same office from the first enquiry to delivery.',
     },
     {
       t: 'The price before the booking',

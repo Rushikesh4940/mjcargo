@@ -43,7 +43,7 @@ export function ServicesPage() {
             className="mx-auto aspect-[4/5] w-full max-w-[28rem] rounded-[var(--radius-photo)] object-cover lg:max-w-none"
           />
         }
-        intro="You book the whole truck, so your goods are the only goods on board: loaded at your pickup point and driven straight to the delivery point."
+        intro="You book a whole truck from our fleet of 40, so your goods are the only goods on board. Most of our loads run from Nhava Sheva to destinations all over India, and our trucks carry GPS."
         listTitle="Suited to"
         list={['Bulk stock and large orders', 'Goods that shouldn’t share space with anyone else’s', 'Consignments that need to go straight from pickup to delivery']}
         note="Tell us roughly how much there is. It decides what size of truck the load needs, and that is the biggest part of the price."
@@ -72,7 +72,7 @@ export function ServicesPage() {
           'Hold goods between one consignment and the next',
           'Store and transport with the same company, so the next move is one phone call away',
         ]}
-        note="Tell us what you need to store, roughly how much, and for how long. We'll confirm space, location and terms with you when you enquire."
+        note="Our warehouse has 20,000 sq ft of space. Tell us what you need to store, roughly how much, and for how long, and we'll confirm availability and terms."
         cta={{ href: quoteHref('warehousing'), label: 'Ask about storage space' }}
       />
 

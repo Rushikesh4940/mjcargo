@@ -2,7 +2,8 @@ import type { CSSProperties } from 'react'
 
 // The process as a stretch of road travelled from night to day: each stop sits
 // on a lighter ground than the last, so the colour itself says how far along
-// the enquiry is. No tracking system is implied; updates come from people.
+// the enquiry is. The trucks carry GPS, but there is no customer tracking
+// page: updates come from a call to the office.
 const stops = [
   {
     title: 'Tell us about the load',
@@ -34,7 +35,7 @@ const stops = [
   },
   {
     title: 'Stay in touch until delivery',
-    text: 'For updates, call or speak to us directly. You deal with the same local office from start to finish.',
+    text: 'Our trucks carry GPS, so when you call for an update we can tell you where your goods are. You deal with the same office from start to finish.',
     ground: 'bg-paper text-ink',
     prev: 'var(--color-dawn)',
     sub: 'text-ink-2',

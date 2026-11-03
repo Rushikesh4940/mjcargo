@@ -29,8 +29,14 @@ export const business = {
   email: null as string | null,
   // e.g. 'Mon–Sat, 9:30 am – 9:00 pm'. Not shown until confirmed.
   hours: null as string | null,
-  // e.g. 2005. Not shown until confirmed.
-  foundingYear: null as number | null,
+  // Started 1 June 2010 (owner, 2026-11-02).
+  foundingYear: 2010 as number | null,
+  foundingDate: '2010-06-01',
+  // GST registration number (owner, 2026-11-02).
+  gstin: '27AKVPK4057A1Z2',
+  // Facts the owner confirmed on 2026-11-02, quoted on the site as they stand.
+  fleetSize: 40,
+  warehouseSqFt: '20,000',
 }
 
 export const fullAddressLines = [

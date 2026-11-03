@@ -80,7 +80,9 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-3 rounded-2xl bg-night px-6 py-4 sm:rounded-full text-[0.9375rem] text-lamp-2 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {year} {business.name}. All rights reserved.</p>
+          <p>
+            © {year} {business.name}. All rights reserved. <span className="whitespace-nowrap">GSTIN {business.gstin}</span>
+          </p>
           <p className="flex flex-wrap gap-x-5 gap-y-1">
             <a className="hover:text-lamp hover:underline" href="/privacy/">Privacy policy</a>
             <a className="hover:text-lamp hover:underline" href="/credits/">Image credits</a>

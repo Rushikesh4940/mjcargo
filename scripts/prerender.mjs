@@ -1,6 +1,6 @@
 // Renders every route to static HTML after `vite build`, so each page ships
 // with its content, title, meta tags and structured data already in place.
-import { mkdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 
@@ -13,12 +13,19 @@ const siteUrl = (
   (process.env.VERCEL_PROJECT_PRODUCTION_URL ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}` : '')
 ).replace(/\/+$/, '')
 
+const verification = process.env.GOOGLE_SITE_VERIFICATION || undefined
+
 const { render, routes, buildHead } = await import(pathToFileURL(serverEntry).href)
-const template = await readFile(path.join(dist, 'index.html'), 'utf8')
+let template = await readFile(path.join(dist, 'index.html'), 'utf8')
+
+// Preload the Latin subset of the display face, so the headline (the largest
+// thing on the first screen) doesn't wait for the stylesheet to find it.
+const font = (await readdir(path.join(dist, 'assets'))).find((f) => /^archivo-latin-wdth-normal-.*\.woff2$/.test(f))
+if (font) template = template.replace('<!--app-head-->', `<link rel="preload" href="/assets/${font}" as="font" type="font/woff2" crossorigin />\n    <!--app-head-->`)
 
 for (const route of routes) {
   const html = template
-    .replace('<!--app-head-->', buildHead(route, siteUrl || undefined))
+    .replace('<!--app-head-->', buildHead(route, siteUrl || undefined, verification))
     .replace('<!--app-html-->', render(route.path))
   const file = route.id === 'notFound' ? path.join(dist, '404.html') : path.join(dist, route.path, 'index.html')
   await mkdir(path.dirname(file), { recursive: true })

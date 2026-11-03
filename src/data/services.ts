@@ -15,6 +15,8 @@ export interface Service {
   line: string
   // Section id on the Services page.
   anchor: string
+  // One-sentence description for search engines (structured data).
+  summary: string
 }
 
 export const services: Service[] = [
@@ -24,6 +26,7 @@ export const services: Service[] = [
     short: 'Full truck load',
     line: 'A whole truck of ours for your goods',
     anchor: 'full-truck',
+    summary: 'A whole truck from our own fleet of 40 for your load alone, mostly from Nhava Sheva (JNPT) to destinations all over India, with GPS on our trucks.',
   },
   {
     id: 'warehousing',
@@ -31,6 +34,7 @@ export const services: Service[] = [
     short: 'Warehousing',
     line: 'Storage for your goods',
     anchor: 'warehousing',
+    summary: '20,000 sq ft of storage for your goods between consignments, ahead of a delivery, or while you free up space of your own.',
   },
   {
     id: 'forwarding',
@@ -38,6 +42,7 @@ export const services: Service[] = [
     short: 'Freight forwarding',
     line: 'Your cargo’s movement arranged for you',
     anchor: 'freight-forwarding',
+    summary: 'We arrange the whole movement of your cargo by road, in stages where needed, and keep it on track from origin to destination.',
   },
 ]
 
